@@ -1,565 +1,571 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>PROCUT — Tools That Scream Quality</title>
+<title>PROCUT® — Tools That Scream Quality</title>
+<meta name="description" content="PROCUT® premium tools and hardware. 17 categories, 300+ products. Trusted by professionals across India."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --blue: #3120E0;
-  --blue-dark: #2010C0;
-  --blue-deeper: #180A8A;
-  --yellow: #FFB800;
-  --yellow-dim: #CC9200;
-  --white: #FFFFFF;
-  --off-white: #F4F4F6;
-  --charcoal: #1A1A2E;
-  --dark: #0D0B1F;
-  --mid: #2A2750;
-  --card-bg: #16133A;
-  --border: rgba(255,184,0,0.18);
-  --text-muted: rgba(255,255,255,0.55);
-  --wa: #25D366;
-  --wa-hover: #1DAE55;
-  --shadow: 0 8px 40px rgba(49,32,224,0.35);
-}
+:root{--bl:#3120E0;--bld:#1d0fa8;--yl:#FFB800;--dk:#0D0B1F;--md:#1e1a42;--cd:#16133A;--wh:#fff;--of:#f4f5f9;--tx:#1a1a2e;--br:rgba(255,184,0,.18);--wa:#22c55e;--sh:0 4px 24px rgba(49,32,224,.18);--r:5px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
-body{font-family:'Barlow',sans-serif;background:var(--dark);color:var(--white);min-height:100vh;overflow-x:hidden}
+body{font-family:\'Barlow\',sans-serif;background:#fff;color:var(--tx);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--dk)}::-webkit-scrollbar-thumb{background:var(--bl);border-radius:2px}
 
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:var(--dark)}
-::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px}
+/* TOP BAR */
+#tb{background:var(--bl);color:rgba(255,255,255,.85);font-size:11.5px;letter-spacing:.07em;text-align:center;padding:6px 16px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
+#tb a{color:var(--yl);font-weight:700}
+#tb b{color:rgba(255,255,255,.4);margin:0 4px}
 
-/* ── HEADER ── */
-#header{
-  position:sticky;top:0;z-index:100;
-  background:rgba(13,11,31,0.96);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border-bottom:2px solid var(--yellow);
-  padding:0 16px;
-  display:flex;align-items:center;gap:12px;
-  height:60px;
-  box-shadow:0 4px 30px rgba(49,32,224,0.4);
-}
-.logo-mark{
-  display:flex;align-items:center;gap:9px;
-  text-decoration:none;flex-shrink:0;
-}
-.logo-svg{width:36px;height:36px}
-.logo-text{
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:900;font-size:22px;letter-spacing:0.12em;
-  color:var(--white);line-height:1;
-}
-.logo-text span{color:var(--yellow)}
-.search-wrap{
-  flex:1;position:relative;min-width:0;
-}
-.search-wrap input{
-  width:100%;background:var(--mid);
-  border:1.5px solid rgba(255,184,0,0.3);
-  border-radius:4px;
-  color:var(--white);font-family:'Barlow',sans-serif;font-size:14px;
-  padding:8px 36px 8px 12px;
-  outline:none;
-  transition:border-color .2s;
-}
-.search-wrap input::placeholder{color:var(--text-muted)}
-.search-wrap input:focus{border-color:var(--yellow)}
-.search-wrap .ico{
-  position:absolute;right:10px;top:50%;transform:translateY(-50%);
-  color:var(--text-muted);pointer-events:none;
-  display:flex;
-}
-.ham-btn{
-  background:none;border:none;cursor:pointer;
-  padding:6px;display:flex;flex-direction:column;gap:5px;flex-shrink:0;
-  display:none;
-}
-.ham-btn span{
-  display:block;width:22px;height:2px;background:var(--yellow);
-  transition:transform .3s,opacity .3s;border-radius:1px;
-}
+/* HEADER */
+#hd{position:sticky;top:0;z-index:200;background:var(--dk);border-bottom:2.5px solid var(--yl);box-shadow:0 4px 20px rgba(0,0,0,.5)}
+.hi{max-width:1320px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:10px;height:62px}
+.logo{display:flex;align-items:center;gap:9px;flex-shrink:0}
+.logo svg{width:36px;height:36px}
+.lw{font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:23px;letter-spacing:.12em;color:#fff;line-height:1}
+.lw span{color:var(--yl)}
+.lt{font-size:9px;letter-spacing:.16em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-top:2px}
 
-/* ── HERO ── */
-#hero{
-  position:relative;overflow:hidden;
-  background:var(--blue);
-  padding:64px 20px 72px;
-  text-align:center;
-  clip-path:polygon(0 0,100% 0,100% 88%,0 100%);
-  margin-bottom:-32px;
-}
-#hero::before{
-  content:'';position:absolute;inset:0;
-  background:
-    repeating-linear-gradient(
-      -55deg,
-      transparent,transparent 38px,
-      rgba(255,255,255,0.03) 38px,rgba(255,255,255,0.03) 40px
-    );
-}
-#hero::after{
-  content:'';position:absolute;
-  width:600px;height:600px;
-  background:radial-gradient(circle,rgba(255,184,0,0.15) 0%,transparent 70%);
-  top:-100px;right:-150px;pointer-events:none;
-}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(0,0,0,0.25);
-  border:1px solid rgba(255,184,0,0.4);
-  border-radius:2px;
-  padding:4px 14px;
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:12px;letter-spacing:.2em;font-weight:700;
-  color:var(--yellow);
-  text-transform:uppercase;margin-bottom:18px;
-  position:relative;z-index:1;
-}
-.hero-eyebrow::before{
-  content:'';width:6px;height:6px;background:var(--yellow);
-  border-radius:50%;display:inline-block;
-  animation:pulse 1.8s infinite;
-}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(0.6)}}
-.hero-h1{
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:900;font-size:clamp(44px,10vw,90px);
-  line-height:.95;letter-spacing:-.01em;
-  color:var(--white);
-  text-transform:uppercase;
-  position:relative;z-index:1;
-  margin-bottom:6px;
-}
-.hero-h1 em{
-  font-style:normal;
-  color:var(--yellow);
-  -webkit-text-stroke:2px var(--yellow);
-  color:transparent;
-  display:block;
-}
-.hero-sub{
-  font-size:15px;color:rgba(255,255,255,0.7);
-  letter-spacing:.06em;text-transform:uppercase;font-weight:600;
-  position:relative;z-index:1;margin-bottom:36px;
-}
-.cta-btn{
-  display:inline-flex;align-items:center;gap:10px;
-  background:var(--yellow);color:var(--charcoal);
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:800;font-size:17px;letter-spacing:.12em;
-  text-transform:uppercase;
-  padding:14px 32px;
-  border-radius:3px;
-  text-decoration:none;
-  position:relative;z-index:1;
-  border:none;cursor:pointer;
-  transition:background .2s,transform .15s,box-shadow .2s;
-  box-shadow:0 6px 28px rgba(255,184,0,0.4);
-}
-.cta-btn:hover{background:#FFCA30;transform:translateY(-2px);box-shadow:0 10px 36px rgba(255,184,0,0.55)}
-.cta-btn:active{transform:translateY(0)}
-.hero-stats{
-  display:flex;justify-content:center;gap:32px;
-  margin-top:40px;position:relative;z-index:1;
-  flex-wrap:wrap;
-}
-.stat{text-align:center}
-.stat-num{
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:900;font-size:30px;color:var(--yellow);letter-spacing:.04em;
-}
-.stat-label{font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,0.6);text-transform:uppercase}
+/* NAV */
+nav{flex:1;display:flex;align-items:center;gap:0;margin-left:6px}
+.ni{position:relative}
+.nl{display:flex;align-items:center;gap:4px;padding:8px 11px;font-family:\'Barlow Condensed\',sans-serif;font-weight:700;font-size:13.5px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.75);border-radius:var(--r);transition:color .2s,background .2s;cursor:pointer;white-space:nowrap}
+.nl:hover,.nl.act{color:#fff;background:rgba(255,255,255,.09)}
+.nl svg{width:11px;height:11px;transition:transform .2s}
+.ni:hover .nl svg{transform:rotate(180deg)}
+.mega{position:absolute;top:calc(100% + 4px);left:0;background:var(--dk);border:1px solid var(--br);border-radius:6px;box-shadow:0 20px 50px rgba(0,0,0,.7);min-width:640px;display:none;z-index:300;padding:18px;gap:0}
+.ni:hover .mega{display:flex}
+.mc{flex:1}
+.mct{font-family:\'Barlow Condensed\',sans-serif;font-weight:800;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--yl);padding:0 10px 7px;border-bottom:1px solid var(--br);margin-bottom:7px}
+.ml{display:block;padding:5px 10px;font-size:12.5px;color:rgba(255,255,255,.65);border-radius:3px;transition:color .15s,background .15s;cursor:pointer}
+.ml:hover{color:#fff;background:rgba(255,255,255,.07)}
 
-/* ── CATALOG SECTION ── */
-#catalog{padding:52px 16px 80px;max-width:1280px;margin:0 auto}
-.section-head{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:24px;flex-wrap:wrap;gap:12px;
-}
-.section-title{
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:900;font-size:clamp(24px,5vw,38px);
-  letter-spacing:.06em;text-transform:uppercase;
-  position:relative;
-}
-.section-title::after{
-  content:'';display:block;
-  width:48px;height:3px;background:var(--yellow);
-  margin-top:6px;
-}
-.count-badge{
-  background:var(--mid);
-  border:1px solid var(--border);
-  border-radius:2px;
-  padding:4px 12px;
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:700;font-size:13px;letter-spacing:.1em;
-  color:var(--yellow);
-}
+/* HEADER RIGHT */
+.hr{display:flex;align-items:center;gap:7px;margin-left:auto}
+.sb{display:flex;align-items:center;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,184,0,.25);border-radius:var(--r);overflow:hidden;transition:border-color .2s}
+.sb:focus-within{border-color:var(--yl)}
+.sb input{background:none;border:none;color:#fff;font-family:\'Barlow\',sans-serif;font-size:13px;padding:7px 12px;width:195px;outline:none}
+.sb input::placeholder{color:rgba(255,255,255,.3)}
+.sb button{background:var(--yl);border:none;padding:7px 11px;cursor:pointer;display:flex;align-items:center;color:var(--dk)}
+.ib{background:none;border:1px solid rgba(255,255,255,.15);border-radius:var(--r);padding:7px 10px;color:rgba(255,255,255,.7);cursor:pointer;display:flex;align-items:center;gap:5px;font-size:12px;font-family:\'Barlow\',sans-serif;transition:all .2s;white-space:nowrap}
+.ib:hover{border-color:var(--yl);color:#fff}
+#hm{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+#hm span{display:block;width:22px;height:2px;background:var(--yl);border-radius:1px}
 
-/* ── GRID ── */
-#grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-@media(min-width:640px){#grid{grid-template-columns:repeat(3,1fr);gap:14px}}
-@media(min-width:960px){#grid{grid-template-columns:repeat(4,1fr);gap:16px}}
-@media(min-width:1280px){#grid{grid-template-columns:repeat(5,1fr)}}
+/* MOBILE NAV */
+#mn{display:none;position:fixed;inset:0;background:var(--dk);z-index:1000;overflow-y:auto;padding:20px 16px}
+#mn.open{display:block}
+.mc2{float:right;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;line-height:1}
+.ms{margin-top:20px}
+.mst{font-family:\'Barlow Condensed\',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.2em;color:var(--yl);text-transform:uppercase;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid var(--br)}
+.mlink{display:block;padding:9px 0;font-size:14px;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.05)}
 
-/* ── PRODUCT CARD ── */
-.card{
-  background:var(--card-bg);
-  border:1.5px solid rgba(255,184,0,0.12);
-  border-radius:6px;
-  overflow:hidden;
-  display:flex;flex-direction:column;
-  transition:transform .22s cubic-bezier(.4,0,.2,1),
-             border-color .22s,
-             box-shadow .22s;
-  will-change:transform;
-  animation:fadeUp .35s both;
-}
-.card:hover{
-  transform:translateY(-4px);
-  border-color:rgba(255,184,0,0.5);
-  box-shadow:0 12px 40px rgba(49,32,224,0.45);
-}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.card-img-wrap{
-  aspect-ratio:1/1;overflow:hidden;
-  background:var(--mid);
-  position:relative;
-}
-.card-img-wrap img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .4s cubic-bezier(.4,0,.2,1);
-  display:block;
-}
-.card:hover .card-img-wrap img{transform:scale(1.06)}
-.no-img{
-  width:100%;height:100%;
-  display:flex;align-items:center;justify-content:center;
-  color:rgba(255,255,255,0.12);
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:11px;letter-spacing:.1em;
-}
-.card-body{padding:10px 10px 12px;flex:1;display:flex;flex-direction:column;gap:8px}
-.card-name{
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:700;font-size:14px;line-height:1.25;
-  letter-spacing:.03em;color:var(--white);
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
-}
-.card-price{
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:900;font-size:18px;color:var(--yellow);
-  letter-spacing:.04em;margin-top:auto;
-}
-.card-price span{font-size:13px;font-weight:600;color:rgba(255,255,255,0.4);margin-left:2px}
-.wa-btn{
-  display:flex;align-items:center;justify-content:center;gap:6px;
-  background:var(--wa);color:#fff;
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:700;font-size:12px;letter-spacing:.08em;
-  text-transform:uppercase;
-  padding:8px 6px;
-  border-radius:4px;
-  text-decoration:none;
-  border:none;cursor:pointer;
-  transition:background .18s,transform .15s;
-  margin-top:4px;
-}
-.wa-btn:hover{background:var(--wa-hover);transform:scale(1.02)}
-.wa-btn:active{transform:scale(0.98)}
-.wa-icon{width:15px;height:15px;flex-shrink:0}
+/* HERO */
+#hero{position:relative;overflow:hidden;background:var(--bl);min-height:500px;display:flex;align-items:center}
+.hs{display:flex;width:100%;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.hsl{min-width:100%;padding:60px 5% 80px;display:flex;align-items:center;justify-content:space-between;gap:30px;position:relative}
+.hsl::before{content:\'\';position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 36px,rgba(255,255,255,.025) 36px,rgba(255,255,255,.025) 38px);pointer-events:none}
+.hsl:nth-child(2){background:var(--dk)}
+.hsl:nth-child(3){background:linear-gradient(135deg,#1a0050,var(--dk))}
+.hc{position:relative;z-index:1;max-width:520px}
+.hey{display:inline-flex;align-items:center;gap:7px;background:rgba(0,0,0,.25);border:1px solid rgba(255,184,0,.4);border-radius:2px;padding:4px 13px;font-family:\'Barlow Condensed\',sans-serif;font-size:11px;letter-spacing:.2em;font-weight:700;color:var(--yl);text-transform:uppercase;margin-bottom:14px}
+.hey::before{content:\'\';width:5px;height:5px;background:var(--yl);border-radius:50%;display:inline-block;animation:bl 1.8s infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+.hh{font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:clamp(38px,7vw,78px);line-height:.93;text-transform:uppercase;color:#fff;margin-bottom:10px}
+.hh em{font-style:normal;-webkit-text-stroke:2px var(--yl);color:transparent;display:block}
+.hs2{font-size:14.5px;color:rgba(255,255,255,.68);margin-bottom:26px;line-height:1.5}
+.hb{display:flex;gap:10px;flex-wrap:wrap}
+.bp{display:inline-flex;align-items:center;gap:8px;background:var(--yl);color:var(--dk);font-family:\'Barlow Condensed\',sans-serif;font-weight:800;font-size:14.5px;letter-spacing:.1em;text-transform:uppercase;padding:12px 26px;border-radius:var(--r);border:none;cursor:pointer;transition:all .2s;box-shadow:0 4px 20px rgba(255,184,0,.35)}
+.bp:hover{background:#ffca30;transform:translateY(-2px)}
+.bo{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-family:\'Barlow Condensed\',sans-serif;font-weight:700;font-size:14.5px;letter-spacing:.1em;text-transform:uppercase;padding:11px 26px;border-radius:var(--r);border:2px solid rgba(255,255,255,.4);cursor:pointer;transition:all .2s}
+.bo:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.himg{position:relative;z-index:1;flex-shrink:0;width:280px;height:280px;background:rgba(0,0,0,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:80px;opacity:.4}
+.hdots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:2}
+.hd{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3);border:none;cursor:pointer;transition:all .2s}
+.hd.on{background:var(--yl);transform:scale(1.3)}
+.harr{position:absolute;bottom:14px;right:18px;display:flex;gap:7px;z-index:2}
+.ha{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.2);color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .2s}
+.ha:hover{background:var(--yl);color:var(--dk)}
 
-/* ── EMPTY STATE ── */
-#empty{
-  display:none;
-  grid-column:1/-1;
-  text-align:center;padding:60px 20px;
-}
-#empty.show{display:block}
-.empty-icon{font-size:48px;margin-bottom:12px;opacity:0.35}
-.empty-txt{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:20px;font-weight:700;letter-spacing:.1em;
-  color:var(--text-muted);
-}
+/* TRUST BAR */
+.trb{background:var(--dk);border-bottom:1px solid var(--br);padding:13px 20px}
+.tri{max-width:1320px;margin:0 auto;display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+.trit{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.72);font-size:12.5px;font-weight:500}
+.tric{color:var(--yl);font-size:18px}
 
-/* ── LOADING ── */
-#loader{
-  grid-column:1/-1;
-  display:flex;justify-content:center;align-items:center;
-  padding:60px 0;gap:12px;
-}
-.dot{
-  width:10px;height:10px;border-radius:50%;
-  background:var(--yellow);
-  animation:bounce .7s infinite alternate;
-}
-.dot:nth-child(2){animation-delay:.2s;background:var(--blue)}
+/* SECTION */
+.sec{padding:52px 16px;max-width:1320px;margin:0 auto}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;gap:12px;flex-wrap:wrap}
+.st{font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:clamp(21px,4vw,32px);letter-spacing:.06em;text-transform:uppercase}
+.st::after{content:\'\';display:block;width:40px;height:3px;background:var(--yl);margin-top:5px}
+.stl{color:#fff}
+.va{font-family:\'Barlow Condensed\',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--bl);border:1.5px solid var(--bl);border-radius:var(--r);padding:5px 14px;transition:all .2s;white-space:nowrap;cursor:pointer}
+.va:hover{background:var(--bl);color:#fff}
+
+/* CATEGORY TILES */
+.cg{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:480px){.cg{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:900px){.cg{grid-template-columns:repeat(8,1fr)}}
+.ct{background:var(--dk);border:1.5px solid var(--br);border-radius:6px;padding:16px 8px;text-align:center;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:7px}
+.ct:hover{border-color:var(--yl);transform:translateY(-3px);background:var(--md)}
+.ci{font-size:26px}
+.cn{font-family:\'Barlow Condensed\',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#fff;line-height:1.2}
+
+/* PRODUCT GRID */
+.pg{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+@media(min-width:600px){.pg{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:900px){.pg{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:1200px){.pg{grid-template-columns:repeat(5,1fr)}}
+
+/* PRODUCT CARD */
+.pc{background:#fff;border:1.5px solid #e5e5f0;border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:all .22s;animation:fu .3s both}
+.pc:hover{border-color:var(--bl);box-shadow:0 8px 28px rgba(49,32,224,.14);transform:translateY(-3px)}
+@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.pci{aspect-ratio:1;overflow:hidden;background:#f0f0f8;position:relative}
+.pci img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.pc:hover .pci img{transform:scale(1.05)}
+.pni{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:34px;color:rgba(0,0,0,.1)}
+.pcb{padding:9px 9px 11px;flex:1;display:flex;flex-direction:column;gap:5px}
+.pn{font-family:\'Barlow Condensed\',sans-serif;font-weight:700;font-size:13.5px;line-height:1.25;color:var(--tx);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pr{font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:17px;color:var(--bl);margin-top:auto}
+.pr small{font-size:10.5px;font-weight:500;color:#aaa;margin-left:2px}
+.pw{display:flex;align-items:center;justify-content:center;gap:5px;background:#25D366;color:#fff;font-family:\'Barlow Condensed\',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;padding:8px 4px;border-radius:4px;margin-top:5px;transition:background .18s}
+.pw:hover{background:#1dae55}
+
+/* FEATURED BANNERS */
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:580px){.fg{grid-template-columns:1fr}}
+.fb{border-radius:6px;padding:28px 24px;position:relative;overflow:hidden;min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;border:1px solid rgba(255,255,255,.1)}
+.fb::before{content:\'\';position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 28px,rgba(255,255,255,.025) 28px,rgba(255,255,255,.025) 30px)}
+.fb:nth-child(1){background:var(--bl)}
+.fb:nth-child(2){background:var(--dk);border:1px solid var(--br)}
+.fbe{font-size:10px;letter-spacing:.2em;font-weight:700;text-transform:uppercase;color:var(--yl);margin-bottom:5px;position:relative;z-index:1}
+.fbt{font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:21px;color:#fff;text-transform:uppercase;margin-bottom:10px;position:relative;z-index:1;line-height:1.1}
+.fbc{display:inline-flex;align-items:center;gap:5px;font-family:\'Barlow Condensed\',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--yl);position:relative;z-index:1}
+
+/* DARK SECTION */
+.ds{background:var(--dk);padding:52px 16px}
+.dsi{max-width:1320px;margin:0 auto}
+
+/* SPOTLIGHT */
+.spg{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:600px){.spg{grid-template-columns:repeat(3,1fr)}}
+.spc{background:var(--md);border:1px solid var(--br);border-radius:6px;padding:16px 14px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:12px}
+.spc:hover{border-color:var(--yl);background:rgba(49,32,224,.2)}
+.spc.big{grid-column:span 2}
+@media(max-width:600px){.spc.big{grid-column:span 1}}
+.spi{font-size:28px;flex-shrink:0}
+.spn{font-family:\'Barlow Condensed\',sans-serif;font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#fff;margin-bottom:2px}
+.spd{font-size:11px;color:rgba(255,255,255,.5)}
+
+/* NEWSLETTER */
+.nl2{background:var(--bl);padding:44px 20px;text-align:center}
+.nl2 h2{font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:clamp(22px,5vw,38px);letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:5px}
+.nl2 p{color:rgba(255,255,255,.65);font-size:13.5px;margin-bottom:22px}
+.nlf{display:flex;max-width:460px;margin:0 auto}
+.nlf input{flex:1;border:none;border-radius:var(--r) 0 0 var(--r);padding:12px 14px;font-size:13.5px;font-family:\'Barlow\',sans-serif;outline:none}
+.nlf button{background:var(--yl);color:var(--dk);border:none;border-radius:0 var(--r) var(--r) 0;padding:12px 22px;font-family:\'Barlow Condensed\',sans-serif;font-weight:800;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.nlf button:hover{background:#ffca30}
+
+/* SUPPORT */
+.sups{background:var(--of);padding:44px 16px}
+.supi{max-width:1320px;margin:0 auto;display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:center;text-align:center}
+.supb h3{font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:17px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:5px}
+.supb p{font-size:12.5px;color:#666;line-height:1.5}
+.supb a{color:var(--bl);font-weight:600}
+.supic{font-size:28px;margin-bottom:6px}
+
+/* ABOUT */
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+@media(max-width:700px){.ab{grid-template-columns:1fr}}
+.abg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.abs{background:var(--bl);border-radius:6px;padding:20px;text-align:center;color:#fff}
+.abs:nth-child(2),.abs:nth-child(3){background:var(--dk)}
+.abn{font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:36px;color:var(--yl)}
+.abl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+
+/* FOOTER */
+footer{background:var(--dk);border-top:2.5px solid var(--yl);padding:44px 16px 20px}
+.fi{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+@media(max-width:800px){.fi{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.fi{grid-template-columns:1fr}}
+.fl{font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:26px;letter-spacing:.12em;color:#fff;margin-bottom:3px}
+.fl span{color:var(--yl)}
+.flt{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:12px}
+.fa{font-size:12.5px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:14px}
+.fso{display:flex;gap:7px}
+.fsb{width:34px;height:34px;border-radius:var(--r);border:1px solid var(--br);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);font-size:15px;transition:all .2s;text-decoration:none}
+.fsb:hover{border-color:var(--yl);color:var(--yl)}
+.fct{font-family:\'Barlow Condensed\',sans-serif;font-weight:800;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--yl);margin-bottom:12px;padding-bottom:7px;border-bottom:1px solid var(--br)}
+.fli{display:block;font-size:12.5px;color:rgba(255,255,255,.5);padding:3px 0;transition:color .2s;cursor:pointer}
+.fli:hover{color:#fff}
+.fb2{max-width:1320px;margin:28px auto 0;padding-top:18px;border-top:1px solid var(--br);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fc{font-size:11.5px;color:rgba(255,255,255,.28)}
+.pi{display:flex;gap:5px;flex-wrap:wrap}
+.pb{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:3px 8px;font-size:10px;font-weight:700;letter-spacing:.05em;color:rgba(255,255,255,.45)}
+
+/* CATALOG */
+#cp{display:none}
+#cp.show{display:block}
+.cl{max-width:1320px;margin:0 auto;padding:20px 16px 70px;display:flex;gap:18px;align-items:flex-start}
+.cfs{width:210px;flex-shrink:0;position:sticky;top:78px}
+@media(max-width:740px){.cfs{display:none}}
+.cfc{background:var(--of);border:1px solid #e0e0ec;border-radius:6px;padding:14px;margin-bottom:10px}
+.cft{font-family:\'Barlow Condensed\',sans-serif;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx);margin-bottom:9px;padding-bottom:7px;border-bottom:1px solid #e0e0ec}
+.fo{display:flex;align-items:center;gap:7px;padding:3px 0;font-size:12.5px;cursor:pointer}
+.fo input{accent-color:var(--bl)}
+.cm{flex:1;min-width:0}
+.ctb{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:8px;flex-wrap:wrap}
+.cco{font-size:12.5px;color:#777}
+.csi{position:relative;flex:1;max-width:340px}
+.csi input{width:100%;border:1.5px solid #dde;border-radius:var(--r);padding:8px 34px 8px 11px;font-size:13px;font-family:\'Barlow\',sans-serif;outline:none;transition:border-color .2s}
+.csi input:focus{border-color:var(--bl)}
+.csic{position:absolute;right:9px;top:50%;transform:translateY(-50%);color:#aaa;pointer-events:none}
+
+/* BREADCRUMB */
+.bc{background:var(--of);border-bottom:1px solid #e0e0ec;padding:9px 16px}
+.bci{max-width:1320px;margin:0 auto;font-size:12px;color:#999}
+.bci a{color:var(--bl);cursor:pointer}
+
+/* SEARCH BAR section */
+.ss{background:var(--of);border-bottom:1px solid #e0e0ec;padding:16px}
+.ssi{max-width:680px;margin:0 auto;display:flex;gap:0}
+.ssi input{flex:1;border:2px solid var(--bl);border-right:none;border-radius:var(--r) 0 0 var(--r);padding:11px 14px;font-size:14.5px;outline:none;font-family:\'Barlow\',sans-serif}
+.ssi button{background:var(--bl);color:#fff;border:none;border-radius:0 var(--r) var(--r) 0;padding:11px 18px;font-family:\'Barlow Condensed\',sans-serif;font-weight:700;font-size:13.5px;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.ssi button:hover{background:var(--bld)}
+
+/* LOADER / EMPTY */
+.ld{display:flex;justify-content:center;align-items:center;padding:56px;gap:9px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--bl);animation:bo .7s infinite alternate}
+.dot:nth-child(2){animation-delay:.2s;background:var(--yl)}
 .dot:nth-child(3){animation-delay:.4s}
-@keyframes bounce{from{transform:translateY(0);opacity:1}to{transform:translateY(-14px);opacity:.4}}
+@keyframes bo{from{transform:translateY(0);opacity:1}to{transform:translateY(-13px);opacity:.4}}
+.emp{text-align:center;padding:56px 20px;color:#aaa;font-family:\'Barlow Condensed\',sans-serif;font-size:18px}
 
-/* ── FOOTER ── */
-footer{
-  background:var(--dark);
-  border-top:2px solid var(--yellow);
-  padding:28px 20px;
-  text-align:center;
-}
-.footer-logo{
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:900;font-size:28px;letter-spacing:.15em;
-  color:var(--yellow);margin-bottom:4px;
-}
-.footer-tagline{
-  font-size:11px;letter-spacing:.2em;color:var(--text-muted);
-  text-transform:uppercase;margin-bottom:16px;
-}
-.footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
+/* SCROLL TOP */
+#st{position:fixed;bottom:18px;right:18px;background:var(--bl);color:#fff;width:38px;height:38px;border-radius:50%;border:none;cursor:pointer;font-size:17px;display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(49,32,224,.4);z-index:99}
+#st.show{display:flex}
+#st:hover{background:var(--bld)}
 
-/* ── MOBILE MENU ── */
-@media(max-width:540px){
-  .ham-btn{display:flex}
-  .search-wrap{display:none;position:absolute;top:60px;left:0;right:0;
-    padding:10px 14px;background:var(--dark);border-bottom:1px solid var(--border);z-index:99}
-  .search-wrap.open{display:block}
-  .search-wrap input{font-size:16px}
-}
-
-/* ── DIAGONAL ACCENT ── */
-.diagonal-bar{
-  height:4px;background:linear-gradient(90deg,var(--blue),var(--yellow),var(--blue));
-}
+/* RESPONSIVE */
+@media(max-width:860px){nav{display:none}.sb{display:none}#hm{display:flex}.himg{display:none}.hsl{flex-direction:column;padding:40px 5% 60px;text-align:center}.hb{justify-content:center}}
+@media(max-width:600px){.sec{padding:36px 12px}.fg{grid-template-columns:1fr}.ab{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<!-- DIAGONAL BAR -->
-<div class="diagonal-bar"></div>
+<div id="tb">
+  <span>Professional Grade Tools &amp; Hardware</span><b>|</b>
+  <a href="tel:+919321895155">📞 +91-93218-95155</a><b>|</b>
+  <span onclick="showCatalog()" style="cursor:pointer;color:var(--yl);font-weight:700">Browse Catalog →</span>
+</div>
 
-<!-- HEADER -->
-<header id="header">
-  <a href="#" class="logo-mark">
-    <!-- SVG icon reconstructed from brand mark -->
-    <svg class="logo-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="14,14 38,14 62,66 38,66" fill="#FFB800"/>
-      <polygon points="24,14 38,14 28,38 14,38" fill="#3120E0"/>
-      <path d="M38,14 L66,14 Q76,14 76,28 Q76,42 66,42 L44,42 L44,66 L38,66 Z
-               M44,14 L66,14 Q70,14 70,28 Q70,36 66,36 L44,36 Z"
-            fill="#FFB800"/>
-    </svg>
-    <span class="logo-text">PRO<span>CUT</span></span>
-  </a>
-
-  <div class="search-wrap" id="searchWrap">
-    <input type="text" id="searchInput" placeholder="Search products…" autocomplete="off" inputmode="search"/>
-    <span class="ico">
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    </span>
+<header id="hd">
+  <div class="hi">
+    <div class="logo" onclick="showHome()" style="cursor:pointer">
+      <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="14,14 38,14 62,66 38,66" fill="#FFB800"/>
+        <polygon points="24,14 38,14 28,38 14,38" fill="#3120E0"/>
+        <path d="M38,14 L66,14 Q76,14 76,28 Q76,42 66,42 L44,42 L44,66 L38,66 Z M44,20 L64,20 Q70,20 70,28 Q70,36 64,36 L44,36 Z" fill="#FFB800"/>
+      </svg>
+      <div><div class="lw">PRO<span>CUT</span><sup style="font-size:10px;color:rgba(255,255,255,.35)">®</sup></div><div class="lt">Tools That Scream Quality</div></div>
+    </div>
+    <nav>
+      <div class="ni"><div class="nl" onclick="showCatalog()">All Products</div></div>
+      <div class="ni">
+        <div class="nl">Categories <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="mega">
+          <div class="mc"><div class="mct">Automotive</div><span class="ml" onclick="fc(\'Jack\')">Jacks &amp; Stands</span><span class="ml" onclick="fc(\'Hydraulic\')">Hydraulic Tools</span><span class="ml" onclick="fc(\'Brake\')">Brake Tools</span><span class="ml" onclick="fc(\'Tire\')">Tire Tools</span></div>
+          <div class="mc"><div class="mct">Hand Tools</div><span class="ml" onclick="fc(\'Socket\')">Socket Sets</span><span class="ml" onclick="fc(\'Ratchet\')">Ratchet Wrenches</span><span class="ml" onclick="fc(\'Allen\')">Allen Keys</span><span class="ml" onclick="fc(\'Plier\')">Pliers</span></div>
+          <div class="mc"><div class="mct">Specialty</div><span class="ml" onclick="fc(\'Grease\')">Grease Guns</span><span class="ml" onclick="fc(\'Torque\')">Torque Wrenches</span><span class="ml" onclick="fc(\'Compressor\')">Compressors</span><span class="ml" onclick="fc(\'OBD\')">Diagnostics</span></div>
+          <div class="mc"><div class="mct">Equipment</div><span class="ml" onclick="fc(\'Pressure Washer\')">Pressure Washers</span><span class="ml" onclick="fc(\'Cordless\')">Cordless Tools</span><span class="ml" onclick="fc(\'Trolley\')">Tool Storage</span><span class="ml" onclick="fc(\'Bearing\')">Bearing Tools</span></div>
+        </div>
+      </div>
+      <div class="ni"><span class="nl" onclick="sg(\'b2b\')">B2B / Bulk</span></div>
+      <div class="ni"><span class="nl" onclick="sg(\'abt\')">About</span></div>
+    </nav>
+    <div class="hr">
+      <div class="sb"><input type="text" id="hs" placeholder="Search products…" onkeydown="if(event.key===\'Enter\')dhs()"/><button onclick="dhs()"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button></div>
+      <a class="ib" href="https://wa.me/919321895155" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="#22c55e"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.528 5.855L.057 23.927a.5.5 0 0 0 .618.618l6.168-1.47A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 0 1-5.002-1.371l-.359-.214-3.722.886.899-3.619-.235-.373A9.77 9.77 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>WhatsApp</a>
+      <button id="hm" onclick="tmn()"><span></span><span></span><span></span></button>
+    </div>
   </div>
-
-  <button class="ham-btn" id="hamBtn" aria-label="Search">
-    <span></span><span></span><span></span>
-  </button>
 </header>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-eyebrow">Premium Industrial Tools</div>
-  <h1 class="hero-h1">
-    Tools That<br/>
-    <em>Scream Quality</em>
-  </h1>
-  <p class="hero-sub">Professional grade · Trusted by craftsmen across India</p>
-  <a href="#catalog" class="cta-btn">
-    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-    Browse Catalog
-  </a>
-  <div class="hero-stats">
-    <div class="stat"><div class="stat-num" id="stat-products">—</div><div class="stat-label">Products</div></div>
-    <div class="stat"><div class="stat-num">17</div><div class="stat-label">Categories</div></div>
-    <div class="stat"><div class="stat-num">1300<span style="font-size:18px">+</span></div><div class="stat-label">SKUs</div></div>
+<div id="mn">
+  <button class="mc2" onclick="tmn()">✕</button>
+  <div style="margin-top:14px"><input type="text" id="ms2" placeholder="Search products…" style="width:100%;padding:10px 13px;background:var(--md);border:1px solid var(--br);border-radius:4px;color:#fff;font-size:14px;outline:none" onkeydown="if(event.key===\'Enter\'){fc(document.getElementById(\'ms2\').value);tmn()}"/></div>
+  <div class="ms"><div class="mst">Navigate</div>
+    <span class="mlink" onclick="showCatalog();tmn()">All Products</span>
+    <span class="mlink" onclick="sg(\'abt\');tmn()">About Us</span>
+    <span class="mlink" onclick="sg(\'b2b\');tmn()">B2B / Bulk Orders</span>
+    <span class="mlink" onclick="sg(\'cnt\');tmn()">Contact</span>
   </div>
-</section>
+  <div class="ms"><div class="mst">Categories</div>
+    <span class="mlink" onclick="fc(\'Jack\');tmn()">Jacks &amp; Stands</span>
+    <span class="mlink" onclick="fc(\'Socket\');tmn()">Socket Sets</span>
+    <span class="mlink" onclick="fc(\'Ratchet\');tmn()">Ratchet Wrenches</span>
+    <span class="mlink" onclick="fc(\'Hydraulic\');tmn()">Hydraulic Tools</span>
+    <span class="mlink" onclick="fc(\'Grease\');tmn()">Grease Guns</span>
+    <span class="mlink" onclick="fc(\'Pressure Washer\');tmn()">Pressure Washers</span>
+  </div>
+</div>
 
-<!-- CATALOG -->
-<section id="catalog">
-  <div class="section-head">
-    <h2 class="section-title">Product Catalog</h2>
-    <span class="count-badge" id="countBadge">Loading…</span>
-  </div>
-  <div id="grid">
-    <div id="loader"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-    <div id="empty"><div class="empty-icon">🔍</div><div class="empty-txt">No products match your search</div></div>
-  </div>
-</section>
+<!-- HOME -->
+<div id="hp">
+  <section id="hero">
+    <div class="hs" id="hsl">
+      <div class="hsl"><div class="hc"><div class="hey">Premium Tools Brand</div><h1 class="hh">Tools That<br/><em>Scream Quality</em></h1><p class="hs2">Professional grade tools for garages, workshops &amp; craftsmen. 17 categories, 300+ products across India.</p><div class="hb"><button class="bp" onclick="showCatalog()">Browse Catalog</button><a class="bo" href="https://wa.me/919321895155?text=Hi PROCUT! I want to inquire about bulk orders." target="_blank">B2B Inquiry</a></div></div><div class="himg">🔧</div></div>
+      <div class="hsl"><div class="hc"><div class="hey">Hydraulic Series</div><h1 class="hh">Heavy Duty<br/><em>Hydraulics</em></h1><p class="hs2">Bottle jacks 2T–50T, bearing pullers, shop cranes &amp; spring compressors. Built for toughest workshops.</p><div class="hb"><button class="bp" onclick="fc(\'Hydraulic\')">Shop Hydraulics</button></div></div><div class="himg">⚙️</div></div>
+      <div class="hsl"><div class="hc"><div class="hey">Cordless Range</div><h1 class="hh">Go Cordless<br/><em>Go Pro</em></h1><p class="hs2">Pressure washers, grease guns, impact wrenches &amp; more — all with premium lithium batteries.</p><div class="hb"><button class="bp" onclick="fc(\'Cordless\')">Shop Cordless</button></div></div><div class="himg">🔋</div></div>
+    </div>
+    <div class="hdots" id="hd2"></div>
+    <div class="harr"><button class="ha" onclick="hn(-1)">‹</button><button class="ha" onclick="hn(1)">›</button></div>
+  </section>
 
-<!-- FOOTER -->
+  <div class="trb"><div class="tri">
+    <div class="trit"><span class="tric">🏭</span>Premium Brand</div>
+    <div class="trit"><span class="tric">📦</span>Pan-India Shipping</div>
+    <div class="trit"><span class="tric">🧾</span>GST Invoices</div>
+    <div class="trit"><span class="tric">💬</span>WhatsApp Support</div>
+    <div class="trit"><span class="tric">⭐</span>Trusted by Professionals</div>
+  </div></div>
+
+  <div class="sec">
+    <div class="sh"><h2 class="st">Shop by Category</h2><span class="va" onclick="showCatalog()">View All</span></div>
+    <div class="cg">
+      <div class="ct" onclick="fc(\'Jack\')"><div class="ci">🏋️</div><div class="cn">Jacks &amp; Stands</div></div>
+      <div class="ct" onclick="fc(\'Hydraulic\')"><div class="ci">⚙️</div><div class="cn">Hydraulic Tools</div></div>
+      <div class="ct" onclick="fc(\'Socket\')"><div class="ci">🔩</div><div class="cn">Socket Sets</div></div>
+      <div class="ct" onclick="fc(\'Ratchet\')"><div class="ci">🛠️</div><div class="cn">Ratchet Wrenches</div></div>
+      <div class="ct" onclick="fc(\'Cordless\')"><div class="ci">🔋</div><div class="cn">Cordless Tools</div></div>
+      <div class="ct" onclick="fc(\'Grease\')"><div class="ci">💉</div><div class="cn">Grease Guns</div></div>
+      <div class="ct" onclick="fc(\'Pressure Washer\')"><div class="ci">💧</div><div class="cn">Pressure Washers</div></div>
+      <div class="ct" onclick="showCatalog()"><div class="ci">📦</div><div class="cn">All Products</div></div>
+    </div>
+  </div>
+
+  <div class="sec" style="padding-top:0">
+    <div class="sh"><h2 class="st">Featured Products</h2><span class="va" onclick="showCatalog()">View All</span></div>
+    <div class="pg" id="tg"><div class="ld"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
+  </div>
+
+  <div class="sec" style="padding-top:0">
+    <div class="fg">
+      <div class="fb" onclick="fc(\'Hydraulic\')"><div class="fbe">Heavy Duty Series</div><div class="fbt">Hydraulic Jacks &amp; Pullers</div><div class="fbc">Shop Now →</div></div>
+      <div class="fb" onclick="fc(\'Cordless\')"><div class="fbe">Premium Range</div><div class="fbt">Cordless Pro Tools</div><div class="fbc">Shop Now →</div></div>
+    </div>
+  </div>
+
+  <div class="ds">
+    <div class="dsi">
+      <div class="sh"><h2 class="st stl">Category Spotlight</h2><span class="va" onclick="showCatalog()" style="color:var(--yl);border-color:var(--yl)">View All</span></div>
+      <div class="spg">
+        <div class="spc big" onclick="fc(\'Ratchet\')"><div class="spi">🔧</div><div><div class="spn">Ratchet Wrenches</div><div class="spd">72T gears, flexible heads, multiple drives — complete range</div></div></div>
+        <div class="spc" onclick="fc(\'Socket\')"><div class="spi">🔩</div><div><div class="spn">Socket Sets</div><div class="spd">Chrome molybdenum quality</div></div></div>
+        <div class="spc" onclick="fc(\'Jack\')"><div class="spi">🏋️</div><div><div class="spn">Jacks &amp; Stands</div><div class="spd">2T to 50T hydraulic capacity</div></div></div>
+        <div class="spc" onclick="fc(\'Grease\')"><div class="spi">💉</div><div><div class="spn">Grease Guns</div><div class="spd">Manual, pneumatic &amp; cordless</div></div></div>
+        <div class="spc" onclick="fc(\'Torque\')"><div class="spi">⚖️</div><div><div class="spn">Torque Wrenches</div><div class="spd">Digital &amp; interchangeable sets</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sh"><h2 class="st">Garage Essentials</h2><span class="va" onclick="showCatalog()">View All</span></div>
+    <div class="pg" id="gg"><div class="ld"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
+  </div>
+
+  <div class="ds" id="b2b">
+    <div style="max-width:680px;margin:0 auto;padding:52px 16px;text-align:center">
+      <div style="font-size:10.5px;letter-spacing:.2em;font-weight:700;text-transform:uppercase;color:var(--yl);margin-bottom:8px">For Businesses</div>
+      <h2 style="font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:clamp(26px,6vw,48px);color:#fff;text-transform:uppercase;margin-bottom:10px">B2B / Bulk Orders</h2>
+      <p style="color:rgba(255,255,255,.6);font-size:14px;line-height:1.6;margin-bottom:26px">Competitive pricing for distributors, garages &amp; resellers. GST invoices. Contact for bulk pricing and delivery.</p>
+      <a href="https://wa.me/919321895155?text=Hi PROCUT! I am interested in bulk/B2B pricing." target="_blank" class="bp" style="display:inline-flex">WhatsApp Us for Bulk Pricing</a>
+    </div>
+  </div>
+
+  <div class="sec" id="abt">
+    <div class="ab">
+      <div>
+        <div style="font-size:10.5px;letter-spacing:.2em;font-weight:700;text-transform:uppercase;color:var(--bl);margin-bottom:8px">Who We Are</div>
+        <h2 style="font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:clamp(26px,5vw,42px);text-transform:uppercase;margin-bottom:14px;line-height:1">About <span style="color:var(--bl)">PROCUT®</span></h2>
+        <p style="font-size:13.5px;color:#555;line-height:1.7;margin-bottom:12px">PROCUT® is a premium tools and hardware brand built for professionals who demand performance, durability, and precision. Our catalog spans 17 product categories with 300+ SKUs — from hydraulic jacks to cordless tools.</p>
+        <p style="font-size:13.5px;color:#555;line-height:1.7;margin-bottom:22px">Trusted by garages, workshops, industries, and craftsmen across India, PROCUT® tools are engineered to the highest standards.</p>
+        <a href="https://wa.me/919321895155" target="_blank" class="bp" style="display:inline-flex">Contact Us</a>
+      </div>
+      <div class="abg">
+        <div class="abs"><div class="abn">17</div><div class="abl">Categories</div></div>
+        <div class="abs"><div class="abn">300+</div><div class="abl">Products</div></div>
+        <div class="abs" style="background:var(--bl)"><div class="abn">🇮🇳</div><div class="abl">Made for India</div></div>
+        <div class="abs" style="background:var(--bl)"><div class="abn">PRO</div><div class="abl">Grade Quality</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nl2">
+    <h2>Stay Updated</h2>
+    <p>Subscribe for new arrivals, deals &amp; pro tips</p>
+    <div class="nlf"><input type="email" placeholder="Your email address"/><button>Subscribe</button></div>
+  </div>
+
+  <div class="sups" id="cnt">
+    <div style="text-align:center;margin-bottom:28px"><h2 style="font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:30px;text-transform:uppercase;letter-spacing:.07em">Support Center</h2><p style="color:#666;font-size:13px;margin-top:5px">Questions about products? We\'re here to help.</p></div>
+    <div class="supi">
+      <div class="supb"><div class="supic">📞</div><h3>Call Us</h3><p><a href="tel:+919321895155">+91-93218-95155</a></p></div>
+      <div class="supb"><div class="supic">💬</div><h3>WhatsApp</h3><p><a href="https://wa.me/919321895155" target="_blank">Chat with us</a></p></div>
+      <div class="supb"><div class="supic">🕐</div><h3>Business Hours</h3><p>Mon–Sat: 10AM – 7PM</p></div>
+      <div class="supb"><div class="supic">📧</div><h3>Email</h3><p><a href="mailto:info@procut.in">info@procut.in</a></p></div>
+    </div>
+  </div>
+</div>
+
+<!-- CATALOG PAGE -->
+<div id="cp">
+  <div class="bc"><div class="bci"><a onclick="showHome()">Home</a> › <span id="bcat">All Products</span></div></div>
+  <div class="ss"><div class="ssi"><input type="text" id="csi2" placeholder="Search products…" oninput="ds(this.value)"/><button onclick="ds(document.getElementById(\'csi2\').value)">Search</button></div></div>
+  <div class="cl">
+    <aside class="cfs">
+      <div class="cfc"><div class="cft">Filter by Keyword</div><div id="cff"></div></div>
+    </aside>
+    <div class="cm">
+      <div class="ctb"><div class="cco" id="cco">Loading…</div></div>
+      <div class="pg" id="cg2"><div class="ld"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
+      <div class="emp" id="cem" style="display:none">🔍 No products found</div>
+    </div>
+  </div>
+</div>
+
 <footer>
-  <div class="footer-logo">PROCUT<sup style="font-size:12px;color:var(--text-muted)">®</sup></div>
-  <div class="footer-tagline">Tools That Scream Quality</div>
-  <div class="footer-copy">© 2025 Pro-Cut Tools. All rights reserved.</div>
+  <div class="fi">
+    <div>
+      <div class="fl">PRO<span>CUT</span><sup style="font-size:10px;opacity:.4">®</sup></div>
+      <div class="flt">Tools That Scream Quality</div>
+      <p class="fa">Premium tools &amp; hardware brand. 17 categories, 300+ professional-grade products trusted by craftsmen and workshops across India.</p>
+      <div class="fso">
+        <a class="fsb" href="https://wa.me/919321895155" target="_blank">📱</a>
+        <a class="fsb" href="#" target="_blank">📸</a>
+        <a class="fsb" href="#" target="_blank">▶️</a>
+      </div>
+    </div>
+    <div><div class="fct">Policies</div><span class="fli">Shipping Policy</span><span class="fli">Return &amp; Refund</span><span class="fli">Terms of Service</span><span class="fli">Privacy Policy</span></div>
+    <div><div class="fct">Navigate</div><span class="fli" onclick="showHome()">Home</span><span class="fli" onclick="showCatalog()">All Products</span><span class="fli" onclick="sg(\'b2b\')">B2B Orders</span><span class="fli" onclick="sg(\'cnt\')">Contact</span></div>
+    <div><div class="fct">Contact</div><a class="fli" href="tel:+919321895155">+91-93218-95155</a><a class="fli" href="mailto:info@procut.in">info@procut.in</a><span class="fli" style="cursor:default">Mon–Sat: 10AM – 7PM</span></div>
+  </div>
+  <div class="fb2">
+    <div class="fc">© 2025 PROCUT® Tools. All Rights Reserved.</div>
+    <div class="pi"><span class="pb">UPI</span><span class="pb">GPay</span><span class="pb">PhonePe</span><span class="pb">NEFT/RTGS</span><span class="pb">Cash</span></div>
+  </div>
 </footer>
 
+<button id="st" onclick="window.scrollTo({top:0,behavior:\'smooth\'})">↑</button>
+
 <script>
-// ─────────────────────────────────────────────
-// CONFIGURATION — edit these two values only
-// ─────────────────────────────────────────────
-const WA_NUMBER = '919321895155'; // Replace with your WhatsApp number (country code + number, no +)
+const WA='919321895155';
+const SHEET_URL='https://script.google.com/macros/s/AKfycbwlZFyipyevddtcXOQBzMfG2unk8aTrhGpjtmFCyonaKNVF-nmeE3mD-DOeXV-zDOT6NQ/exec';
+const DEFAULT_PROD=[
+  {name:'Hydraulic Bottle Jack 2T', rate:'₹1,299', img:''},
+  {name:'Hydraulic Bottle Jack 5T', rate:'₹2,199', img:''},
+  {name:'Heavy Duty Ratchet Set', rate:'₹1,799', img:''},
+  {name:'Chrome Socket Set 1/2"', rate:'₹2,499', img:''},
+  {name:'Cordless Impact Wrench', rate:'₹4,999', img:''},
+  {name:'Pneumatic Grease Gun', rate:'₹1,649', img:''},
+  {name:'Pressure Washer 1800W', rate:'₹6,299', img:''},
+  {name:'Torque Wrench 1/2"', rate:'₹3,299', img:''},
+  {name:'Bearing Puller Set', rate:'₹1,899', img:''},
+  {name:'Tool Trolley 5 Drawer', rate:'₹5,799', img:''},
+  {name:'Air Compressor 50L', rate:'₹8,999', img:''},
+  {name:'Wire Crimp Tool Kit', rate:'₹1,149', img:''}
+];
+const PROD=(typeof prod_json!=='undefined' && Array.isArray(prod_json) ? prod_json : DEFAULT_PROD);
 
-// ── Google Sheet Web App URL ──────────────────
-// Deploy your sheet as a Web App (Extensions → Apps Script) and paste the URL below.
-// The sheet columns must be: A=Image URL, B=Product Name, C=Rate (number)
-// If URL is empty, the demo inline data below is used.
-const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwlZFyipyevddtcXOQBzMfG2unk8aTrhGpjtmFCyonaKNVF-nmeE3mD-DOeXV-zDOT6NQ/exec'; // e.g. 'https://script.google.com/macros/s/XXXXX/exec'
+// State
+let all=PROD, cat='All', qry='', hi=0;
+const NS=3;
 
-// ─────────────────────────────────────────────
-// DEMO DATA — used when SHEET_URL is empty
-// Replace / extend with your actual data
-// ─────────────────────────────────────────────
-const DEMO_DATA = [{"img":"https://drive.google.com/thumbnail?id=1IJXjIfi171qIcINjq1HD8cmECKOI33hN&sz=w400","name":"Jack Stand ((Ghori) 2pcs set \n\n2) 6 ton","rate":"@2700/-"},{"img":"https://drive.google.com/thumbnail?id=1MhLbZR9LU2M7Ok6uhXKZCLbZN20dGDnk&sz=w400","name":"Fuel Filter / Funnel","rate":"@113/-"},{"img":"https://drive.google.com/thumbnail?id=1KxSzzSNAU3ekP5yFmSo7fLdO7Hvdrrc7&sz=w400","name":"High Quality Piston Ring Compressor ","rate":"🍁3\" @240/-\n🍁4\" @285/-"},{"img":"https://drive.google.com/thumbnail?id=19CByynApbuPwOFn8AdneRsWfKdcIWYq7&sz=w400","name":"Spark plug wrench","rate":"🍁 16mm @ 150/-\n🍁21mm @165/-"},{"img":"https://drive.google.com/thumbnail?id=11-fFhRJC03-BxFlu_vQVxNgF5YvbEUhZ&sz=w400","name":"Farm Jack","rate":"🍁20\" @₹4050/-\n🍁33\" @₹4350/-\n🍁48\" @4650/-\n🍁60\" @4950/-"},{"img":"https://drive.google.com/thumbnail?id=1-2UzMrmEXfXHJIq5E4tYsUt-HEZrHibf&sz=w400","name":"1/2\" Labour Saving Gear Wrench","rate":"@3150/-"},{"img":"https://drive.google.com/thumbnail?id=1WsnwRIz47UNfeEfV2KIVKjAWTTK33k7r&sz=w400","name":"PROCUT\n Labour saving wrench ","rate":"1) 1:58 @2925/-\n2) 1:68 @3225/-"},{"img":"https://drive.google.com/thumbnail?id=1mZNtGJlWfeDh61BO_fKO6VwZfL_Op0HP&sz=w400","name":"Chain Connecting tool","rate":"🍁30-100mm @420/- \n🍁45-140mm  @440/-"},{"img":"https://drive.google.com/thumbnail?id=10Q68nvJ42Lrx_VOxLws46hUhJLMs5b3J&sz=w400","name":"4pcs Impact Driver Bit  Sets Small and Big ","rate":"🍀Small @68/-\n🍀Big @135/-"},{"img":"https://drive.google.com/thumbnail?id=163Q9ik6nZRa9Dr6d00wqP3pYboR4PR9I&sz=w400","name":"Impact driver bit\nS2 ,Brown Finish\nLoose (100pcs PVC bag)\n🍁PH2/40mm \n🍁PH3/40mm \n\n🍁PH2/80mm\n🍁PH 3/80mm\n","rate":"@15/-  each\n@27/- each"},{"img":"https://drive.google.com/thumbnail?id=1xiiZ_FIACR5OKsFTvybZ1DoMEO1S6OQI&sz=w400","name":"S2 ,Brown Finish","rate":"🍁55mm longx10mm Hex Allen Socket ,½drive \n🍁6mm@90/-\n🍁8mm@90/-\n🍁10mm@63/-\n🍁12mm @63/-\n🍁14mm@68/-\n🍁17mm@68 /-\nTorx\n🍁T20@63/-\n🍁T25@63/-\n🍁T40@60/-\n🍁T45@68/-\n🍀🍀🍀🍀🍀\n🍁100mm longx10mm Hex Allen Socket ,½drive \n🍁6mm@75/-\n🍁8mm@75/-\n🍁10mm@75/-\n\nTorx\n🍁T20@75/-\n🍁T25@75/-\n🍁T40@83/-\n🍁T45@83/-"},{"img":"https://drive.google.com/thumbnail?id=1HtkIHDTSnCTeplZ0TOTFcsN64SqSbGqc&sz=w400","name":"Bike repair kit\nHeavy duty Bike repair kit","rate":"@₹105/-\n@150/-"},{"img":"https://drive.google.com/thumbnail?id=137Mbss7J0tUQEE-9t7zdtbHRqy_EwNB3&sz=w400","name":"High Pressure Engine cleaning gun with tube ","rate":"@450/-"},{"img":"https://drive.google.com/thumbnail?id=1cFHESpiox4tIQZk46H3mE0DeEE_xGRvK&sz=w400","name":"Aluminum Spanner ","rate":"@225/-"},{"img":"https://drive.google.com/thumbnail?id=1sbUQeozgzaYss03bmb69euVf5yOPCbSw&sz=w400","name":"1/2\" Adjustable Spinner T Handle ","rate":"@225/- "},{"img":"https://drive.google.com/thumbnail?id=1EA_14WHvjvxxaxE9jUvTv7DDmXFjOqea&sz=w400","name":"Procut High quality   PVC pipe cutter ","rate":"🍁1) A type @413/-\n🍁2) B type ( Straight) @210/-"},{"img":"https://drive.google.com/thumbnail?id=1PPJTgdNw5CFQcH4kwVAv87oIjaD9Cz6u&sz=w400","name":"Heavyduty Ratchet for 1/4 hex bit","rate":"@165/-"},{"img":"https://drive.google.com/thumbnail?id=1XU3nfg0Rp_tkjHQsVwwRLRFLto2ctjEb&sz=w400","name":"1/4 \" Flexible Bit Holder without blister card  (300mm long)","rate":"@180/-"},{"img":"https://drive.google.com/thumbnail?id=1y6x_nzWLMjoXtsTTPiqk1wRNnyt-YzyF&sz=w400","name":"350mm long x 1/2\" drive\nFlexible Socket Extention","rate":"@263 /-"},{"img":"https://drive.google.com/thumbnail?id=1uGyltWZoQd0NPM61Hlhz-V1-VJuOk84J&sz=w400","name":"1/2\" Swivel  U Joint Impact Socket ","rate":"@165/-"},{"img":"https://drive.google.com/thumbnail?id=1zO6LxStVIrijXxgQ64n_Umssjx5Hk88v&sz=w400","name":"Procut High Pressure Spray Gun Ali 192-1 ","rate":"@360/-"},{"img":"https://drive.google.com/thumbnail?id=1CwvxAlG9brZVND9Y_GsFMKh5Ln-5xndL&sz=w400","name":"Diesel Engine Timing Kit ","rate":"@653/-"},{"img":"https://drive.google.com/thumbnail?id=1CAqdnL4ZSW4U9PIGZKvmwXRFI1Yac2oA&sz=w400","name":"3 Layer Tool Trolley \n[0.7 mm ]","rate":"@2850/-"},{"img":"https://drive.google.com/thumbnail?id=1h1gzwhMIKCOR-l__0kqq9Wo8mfSoTrsQ&sz=w400","name":"1/2 Drill chuck Adaptor For Impact Wrench","rate":"@98/-"},{"img":"https://drive.google.com/thumbnail?id=1fIcw-bfnwgGVFUBuXj0Z1sBfYZ1tj7Lk&sz=w400","name":"Plastic Car Bumper repair kit ","rate":"@1950/-"},{"img":"https://drive.google.com/thumbnail?id=1OkvwmumSeJw_-61ifYzA5gIEr_8zRchy&sz=w400","name":"6pcs nut extractor set","rate":"@563/-"},{"img":"https://drive.google.com/thumbnail?id=1UoHufFBym0yt0ZAWguvJSiqiesadQeo2&sz=w400","name":"Professional Digital Tire Gauge ( heavy duty) ","rate":"@1875/-"},{"img":"https://drive.google.com/thumbnail?id=1ckXtZbZBiUWCDeh3hIogABwkQ6INbzkj&sz=w400","name":"𝐏𝐫𝐨𝐜𝐮𝐭 6 𝑹𝒐𝒘 𝑾𝒐𝒐𝒅𝒆𝒏 𝑯𝒂𝒏𝒅𝒍𝒆 𝑩𝒓𝒖𝒔𝒉","rate":"@29/- "},{"img":"https://drive.google.com/thumbnail?id=1EuTG2RMcGN3WCALo_D7TvI2Dnilz1Hrj&sz=w400","name":"𝑇𝑖𝑟𝑒 𝑖𝑛𝑓𝑙𝑎𝑡𝑜𝑟 𝑔𝑎𝑢𝑔𝑒 𝑤𝑖𝑡ℎ ℎ𝑜𝑠𝑒","rate":"@263/-"},{"img":"https://drive.google.com/thumbnail?id=1xSWTqgSCd5uc4D7Q4eYHfpRAKhCXYUHq&sz=w400","name":"6 row 𝑷𝒍𝒂𝒔𝒕𝒊𝒄 𝑯𝒂𝒏𝒅𝒍𝒆 𝑾𝒊𝒓𝒆 𝒃𝒓𝒖𝒔𝒉","rate":"@29/-"},{"img":"https://drive.google.com/thumbnail?id=1bi1d_LrhiGnoDw61zKTxakKkgELJAE-Z&sz=w400","name":"𝑷𝒓𝒐𝒄𝒖𝒕 Chain breaker ","rate":"🍁420-530mm@210/-\n🍁420-860mm@263/-"},{"img":"https://drive.google.com/thumbnail?id=1I07Au-iQIhb5s4GYuYAMCUcCl0_dqBPI&sz=w400","name":"14pcs 𝐄 𝑺𝒆𝒓𝒊𝒆𝒔 𝑺𝒐𝒄𝒌𝒆𝒕 𝑺𝒆𝒕 (𝐄4 to 𝐄24)","rate":"@975/-"},{"img":"https://drive.google.com/thumbnail?id=1gZlBagV_Vucuwu4-DBJvLZoJQdAQ-ovW&sz=w400","name":"6𝐩𝐜𝐬 𝑺𝒐𝒄𝒌𝒆𝒕 𝑨𝒅𝒂𝒑𝒕𝒐𝒓 𝑺𝒆𝒕 ( 𝑪𝒐𝒏𝒗𝒆𝒓𝒕𝒐𝒓) ","rate":"@788/-"},{"img":"https://drive.google.com/thumbnail?id=1c5Fvdee6K_X9JrYvEfqPoWzzurDOMHqK&sz=w400","name":"34pcs 𝐓𝐨𝐫𝐱 𝐀𝐥𝐥𝐞𝐧 𝐒𝐨𝐜𝐤𝐞𝐭  & 𝐁𝐢𝐭𝐬 𝐒𝐞𝐭\n1)Torx Allen bit (T10 to T60)\n2)Torx bit (T10 to T55)\n3)E socket (E5 to E20)","rate":"@1350/-"},{"img":"https://drive.google.com/thumbnail?id=11WwliM6mz6vECV3fdbmnGyQfFjxXzwyb&sz=w400","name":"Procut range of Ratchet handle ","rate":"🍁 1)  1/2 \" @300/-,\n🍁2) 3/8\" @263 /-\n🍁3) 1/4\" @225/-"},{"img":"https://drive.google.com/thumbnail?id=18y9ISceQiOzBzhVJyk6MbLOtEdYUNiBZ&sz=w400","name":"72 Teeth Ratchet Handle \n𝐈𝐧𝐝𝐮𝐬𝐭𝐫𝐢𝐚𝐥 𝐑𝐚𝐭𝐜𝐡𝐞𝐭 \nProcut","rate":"🍁1/4\" @375/- \n🍁3/8\" @488/-\n🍁1/2\" @600/-"},{"img":"https://drive.google.com/thumbnail?id=1EGf-A9W88r6x8gglsKY_ilTA1WF9uvdW&sz=w400","name":"Procut (72T gears) 1/2\" Extention Ratchet handle ","rate":"@863/-"},{"img":"https://drive.google.com/thumbnail?id=1Ks17nfj8NS4b6DE51H6etmOXf9GC7kQb&sz=w400","name":"🍁 Procut\n (72T gears) 1/2\" 𝐒𝐡𝐨𝐫𝐭 𝐇𝐚𝐧𝐝𝐥𝐞 𝐑𝐞𝐯𝐞𝐫𝐬𝐢𝐛𝐥𝐞 𝐑𝐚𝐭𝐜𝐡𝐞𝐭 𝐇𝐚𝐧𝐝𝐥𝐞","rate":"🍁 ¼\" @225/-\n🍁½\" @413/-"},{"img":"https://drive.google.com/thumbnail?id=110JsajjBEzaLN9uOI2BiLYNq4CPJ030z&sz=w400","name":"𝐅𝐥𝐞𝐱𝐢𝐛𝐥𝐞 𝐡𝐞𝐚𝐝 𝐑𝐞𝐯𝐞𝐫𝐬𝐢𝐛𝐥𝐞 𝐑𝐚𝐭𝐜𝐡𝐞𝐭 𝐡𝐚𝐧𝐝𝐥𝐞 (𝐐𝐮𝐢𝐜𝐤 𝐫𝐞𝐥𝐞𝐚𝐬𝐞𝐝 72𝐓)","rate":"🍁¼\"@413/-\n🍁⅜\"@525/-\n🍁½\"@788/-"},{"img":"https://drive.google.com/thumbnail?id=1mV-FXrszSbAkLQchtq1kKz0UXlT3RNJg&sz=w400","name":"🍁 Procut\n (72T gears) \n𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐐𝐮𝐚𝐥𝐢𝐭𝐲  𝐑𝐞𝐯𝐞𝐫𝐬𝐢𝐛𝐥𝐞 𝐑𝐚𝐭𝐜𝐡𝐞𝐭 𝐇𝐚𝐧𝐝𝐥𝐞 ","rate":"🍁 ¼\" @375/-\n🍁⅜\"@525/-\n🍁½\" @713/-"},{"img":"https://drive.google.com/thumbnail?id=1kPXyfoc1APyEfkbBf_vpTqnEfdVEJ4nt&sz=w400","name":"Procut Reversible Ratchet handle ","rate":"🍁 1) 3/4\" @1750/-\n🍁2) 1\" *@2170/-"},{"img":"https://drive.google.com/thumbnail?id=1Ui9Jz1ca1wc88SgggifMS82jB_FD5pps&sz=w400","name":"Flexible Long Reach Hose Clamp Plier","rate":"@250/-"},{"img":"https://drive.google.com/thumbnail?id=1lqmJwMCcT04qytQAKG1dOxu5xTYh83YP&sz=w400","name":"40pcs Impact Bit Set ","rate":"@₹853/-"},{"img":"https://drive.google.com/thumbnail?id=1atEI8zTDMhNyXg9qWb326qk-6oxEktaI&sz=w400","name":"9pcs Pick and Hook oil seal removal kit (O ring Remover Kit )","rate":"@825/-"},{"img":"https://drive.google.com/thumbnail?id=1G9XOUrpiqe0omxHwCUExdKpECDRPobSa&sz=w400","name":"1) Sheet metal plier\n2)Welding clamp plier \n3) F clamp plier","rate":"@413/-\n@413/-\n@413/-"},{"img":"https://drive.google.com/thumbnail?id=15rvGzxUhMPnpmZWnGIrRNOxbSU4eWPON&sz=w400","name":"Heavy Duty Chain Breaker (420-530mm","rate":"@285/-"},{"img":"https://drive.google.com/thumbnail?id=15SojNoK_t6d84uPLHGAoxNOwtTTT_6wx&sz=w400","name":"1) 2Lb pick up tool \n2) 5 Lb pick up tools \n2) 8 Lb pick up tools ","rate":"@83/- \n@98/-\n@128/-"},{"img":"https://drive.google.com/thumbnail?id=1OF-bNKhAWTXcFRmsx0YUEbzSUuHRyCT2&sz=w400","name":"Digimatic Tire Pressure Gauge ","rate":"@1050/-"},{"img":"https://drive.google.com/thumbnail?id=1-5vGWpDCFt3ZrRjmbwUH9tWWMmr-5WM2&sz=w400","name":"Heavy duty dial tire gauge with hose","rate":"@633/-"},{"img":"https://drive.google.com/thumbnail?id=1qaZpcXwJMlfKL24X0GyyMYIT2H-XZzz8&sz=w400","name":"Procut Motor cycle front wheel parking frame ","rate":"@4575"},{"img":"https://drive.google.com/thumbnail?id=1MUg2GMfaxLLBqKgm7A48cukKA-j2YWpE&sz=w400","name":"Air Tire Chuck Series","rate":"🍁Single Inclined air nozzle @135/-\n🍁Double Nozzle @128/-"},{"img":"https://drive.google.com/thumbnail?id=1RfChU5zeThclIeafaWG3XmgxglJbimsn&sz=w400","name":"Procut 0.5 Ton High Position hy-006","rate":"@14400"},{"img":"https://drive.google.com/thumbnail?id=1F-LinCGljIDpTbGLrO_WCcHNShJngJit&sz=w400","name":"2000lb balancer","rate":"@2625/-"},{"img":"https://drive.google.com/thumbnail?id=1Wz19VBvqNUNX5H4pTL3TaE_hEiwjLidQ&sz=w400","name":"Procut 2L pnuematic brake oil changer ","rate":"@4125/-"},{"img":"https://drive.google.com/thumbnail?id=176fbrlYF6l_I-88xAHMrogfuPz4sbm3U&sz=w400","name":"Procut 0.5 L pneumatic brake oil changer ","rate":"@938/-"},{"img":"https://drive.google.com/thumbnail?id=1S4IFkTfkHgiBBydnUIrov006YAZvTlR0&sz=w400","name":"10pcs 1/2 \" drive Hex Impact  Allen Socket Set ","rate":"@₹1575/-"},{"img":"https://drive.google.com/thumbnail?id=17phTFBuABcrY9WpRjFo96SOSGqH55q3Q&sz=w400","name":"10\" filter wrench plier","rate":"@300/-"},{"img":"https://drive.google.com/thumbnail?id=1Ad6QeVyQTd4Vb1dS0E_h59AAo9R_lVxf&sz=w400","name":"Procut Hydraulic Spring Compressor ","rate":"@12300/-"},{"img":"https://drive.google.com/thumbnail?id=1E5slDAWfSfaj0EHiLIV952_dxxWcmegp&sz=w400","name":"2pcs Oil Seal Remover (Pick and Hook Set ) ","rate":"@300/-"},{"img":"https://drive.google.com/thumbnail?id=1hpFaAVcYAb23QzYm2VILc1i_PUZr8kx8&sz=w400","name":"2ton Hongma Folding jack stand (folding  ghoori)","rate":"@1275"},{"img":"https://drive.google.com/thumbnail?id=1YUDn5l3hpb8EVYuWkMjLZ6W_CGDOKP5H&sz=w400","name":"4pcs Spark Plug Wrench","rate":" @375/-"},{"img":"https://drive.google.com/thumbnail?id=1wkCSbFlC3QkG78qdQHs3kC6sciPskG-W&sz=w400","name":"🍁16mm Sparkplug Spanner \n🍁21mm Sparkplug Spanner \n🍁2-in-1 (16/19)Sparkplug Spanner ","rate":"@150/-\n@165/-\n@270/-"},{"img":"https://drive.google.com/thumbnail?id=1BDXi1PkxHTNm7Rbb1tn6wCNUUsk7y2IY&sz=w400","name":"2-in1 (8mm/10mm) offset Screwdriver","rate":"@165/-"},{"img":"https://drive.google.com/thumbnail?id=1pi7IziGpaTrG6xb8zS8Btv61n67HvH9N&sz=w400","name":"11\" Spring Loaded Basin Wrench ","rate":"@525/-"},{"img":"https://drive.google.com/thumbnail?id=1Iqkgj9FvEx0ggQ6aGA57Lv51wbV_RR6O&sz=w400","name":"Emergency Towing Wire Rope 12mm thickness x 4mt lenght ","rate":"@675/-"},{"img":"https://drive.google.com/thumbnail?id=1U-CxtjOTkf0EDixHwxBkVrq_QdsOvMoB&sz=w400","name":"600amp Cable Booster Clamp ","rate":"@188/-pair"},{"img":"https://drive.google.com/thumbnail?id=1xLU96dvCR94dB18how-3OE237z2gVIZk&sz=w400","name":"360pcs O ring set ","rate":"@638/-"},{"img":"https://drive.google.com/thumbnail?id=1UzN9dqxGp6OZXbcIRzidgbFuTsdbs1zs&sz=w400","name":"DIGITAL TYRE DEPTH GAUGE : \nHigh Quality ","rate":"@488/-"},{"img":"https://drive.google.com/thumbnail?id=10VvtKCYCUwRftoNx5pN7khxXXSEUhMGK&sz=w400","name":"Procut\n7 inch Car polisher","rate":"@3075/-"},{"img":"https://drive.google.com/thumbnail?id=1gCln2mLAKnBwwvC47Kj1m80Zl6HCL241&sz=w400","name":"𝐏𝐫𝐨𝐜𝐮𝐭 \n𝐇eavy 𝐒ilicon 𝐆un (most popular) ","rate":"@263 /-"},{"img":"https://drive.google.com/thumbnail?id=18rF-vFZotL4TGTpmzkfeySKRfgR25lP-&sz=w400","name":"Procut Heavy Duty Bolt Cutter Type Revitor","rate":"@750/-"},{"img":"https://drive.google.com/thumbnail?id=1TWq0T5uC20XnJJVCPhX1qN1gUsasvtDh&sz=w400","name":"PROCUT\n Labour saving wrench \nWith 1inch drive with 6pcs socket \n\n (24,27,30,32,33,38 sockets)","rate":"@4559/-"},{"img":"https://drive.google.com/thumbnail?id=1D0NzhCmG3S7E6afIw53v9UBV9-lXTWjn&sz=w400","name":"𝗛𝗼𝘀𝗲 𝗖𝗹𝗮𝗺𝗽 𝗣𝗹𝗶𝗲𝗿 \n𝗔𝗹𝗶 463-5","rate":"@225/-"},{"img":"https://drive.google.com/thumbnail?id=1w4673OHJcL1-Net-qNmRuY5-SzS8FnbT&sz=w400","name":"Circlip Expander Plier \nAli 463-2 ","rate":"@188/-"},{"img":"https://drive.google.com/thumbnail?id=1dxAGjVSC3rEWJ0Ns31MW8MXeLW4Uk2ps&sz=w400","name":"Trim Removal Plier \nAli 463-3","rate":"@300/-"},{"img":"https://drive.google.com/thumbnail?id=18tTbrWHdyotNmgS-N9u8a0012o-jDnuz&sz=w400","name":"𝐑𝐚𝐝𝐢𝐚𝐭𝐨𝐫 𝐇𝐨𝐬𝐞 𝐂𝐥𝐚𝐦𝐩 𝐏𝐥𝐢𝐞𝐫 \n𝐀𝐥𝐢 463-1","rate":"@525/-"},{"img":"https://drive.google.com/thumbnail?id=1k8ANIYk_CHvZzrTnXK15XYbR5SyjjnfX&sz=w400","name":"Spocket Locking Tool Set","rate":"@413/-"},{"img":"https://drive.google.com/thumbnail?id=1pnfLTB0-vy5c_Bs9eNZbqKpn4qrWKKgd&sz=w400","name":"Hose remover plier \nAli 463-7 ","rate":"@210/-"},{"img":"https://drive.google.com/thumbnail?id=1R8_Or-20iZVrvLywtdIEMorWzB25YzYZ&sz=w400","name":"Relay puller Plier\nAli 463-8 ","rate":"@188/-"},{"img":"https://drive.google.com/thumbnail?id=1bR3h5lCqK1p-_6S0r3GJG_FsGrBKbPo-&sz=w400","name":"Bend type Hose clamp plier ","rate":"@285/-"},{"img":"https://drive.google.com/thumbnail?id=1m8cVoW-YfTa6SVSI7XjieI0gMX1LtukF&sz=w400","name":"Manual Oil Transfer pump","rate":"@188/-"},{"img":"https://drive.google.com/thumbnail?id=1t5ki8D4y4ONlDFzmmpbs2LP4-LfwLVcJ&sz=w400","name":"Joint Boot clamp plier\nAli 463-9","rate":"@300/-"},{"img":"https://drive.google.com/thumbnail?id=1yr41RrhVUPPLQvK5nyEF2CTIqAD-Opde&sz=w400","name":"Procut\nPnuematic  Sander Velcro Pad ","rate":"🍁2\" @68/-\n🍁3\" @98/-\n🍁4\" @150/-\n🍁 5\" @225/-\n🍁 6\" @263/-"},{"img":"https://drive.google.com/thumbnail?id=1SUX1A9-pV_jA-6MN8qwOuYtGKBnRxPLW&sz=w400","name":"Piston Ring Compressor","rate":"🍁RC3 @188/-\n🍁RC4 @218/-\n🍁RC6@300/-"},{"img":"https://drive.google.com/thumbnail?id=1oXZMEGJIxPcGNzHezacHrF7O7KRCYavs&sz=w400","name":"Double Row Chain Filter Wrench ","rate":"🍁A44 @360/-\n🍁A56 @420/-"},{"img":"https://drive.google.com/thumbnail?id=162Lg5sNMZUgUQNbBd-P8fCMcDE6zDZvr&sz=w400","name":"Procut belt wrench (yellow rubber belt) ","rate":"🍁1) 9 \" Oil Filter Belt Wrench (100pcs ) @165/-\n🍁2) 12.\" Oil Filter Belt Wrench @225/-(50pcs)"},{"img":"https://drive.google.com/thumbnail?id=1l-fBKmpAjNhz0zfF9_7v4OqxKdv_SkdK&sz=w400","name":"Impact Driver with 6bits\n14 pcs Heavy duty SPX impact driver\n8pcs heavy duty impact driver\n","rate":"@375/-\n @713/-\n@675/- \n"},{"img":"https://drive.google.com/thumbnail?id=1q8Bxa40LfGojVqMs9vt0jv2NyzeGo8RW&sz=w400","name":"Procut belt wrench (green belt wrench ) ","rate":"🍁1) 9 \" Oil Filter Belt Wrench (100pcs ) @150/-\n🍁2) 12.\" Oil Filter Belt Wrench @225/-(50pcs)"},{"img":"https://drive.google.com/thumbnail?id=14feMUvj8lKTG9QVkiKHtkKiYqSTbXg1U&sz=w400","name":"Procut Oil Filter Chain  wrench ","rate":"🍁1) 9 \" Oil Filter Chain  Wrench @150/-\n🍁2) 12.\" Oil Filter Chain  Wrench @225/-"},{"img":"https://drive.google.com/thumbnail?id=1Oie49LGqCjlliO4ZJ-pnwCxmQzkanJzA&sz=w400","name":"🍁19 pcs trim removal set \n🍁 40pcs Trim Removal Kit ","rate":"@₹750/-\n@₹1350/-"},{"img":"https://drive.google.com/thumbnail?id=1zE8x2ltPOaOhjH3ZvaLgNaxoXsOn9prN&sz=w400","name":"🍁5pcs Handy Trim removal Kit \n🍁11pcs  Trim removal Kit ","rate":"@194/-\n@387/-"},{"img":"https://drive.google.com/thumbnail?id=18ii3v1GqVMoFqwa4gNhohc1NfXnhuJs5&sz=w400","name":"10pcs 1/2 \" drive Hex Impact  Allen Socket Set ","rate":"@₹1575/-"},{"img":"https://drive.google.com/thumbnail?id=1mxGJwMckua2QizA7W_osPXLMfRLHCVyV&sz=w400","name":"11pcs torx bit set","rate":"@₹563/-"},{"img":"https://drive.google.com/thumbnail?id=1K_OrMQkPOnqgEmP_YuBvx0tUdAk3o14a&sz=w400","name":"15pcs Hex Bit Set","rate":"@₹638/-"},{"img":"https://drive.google.com/thumbnail?id=16gft08ar-BhjCp9mA548cHUAsirv6n0a&sz=w400","name":"🍁12pcs Trim removal set (blister card) \n🍁7pcs fuel line disconnector ","rate":"@225/-\n@113/-"},{"img":"https://drive.google.com/thumbnail?id=1QzpYluuVDUyQGzjrwonbdMWGw2oW4eCX&sz=w400","name":"𝐏𝐫𝐨𝐜𝐮𝐭 \n13pcs 𝑻 𝑯𝒂𝒏𝒅𝒍𝒆 𝒘𝒊𝒕𝒉 𝑺𝒐𝒄𝒌𝒆𝒕","rate":"@525/-"},{"img":"https://drive.google.com/thumbnail?id=1DvmkBKl1cnVVbKeUL5xx0qP3slCsDRZt&sz=w400","name":"𝒀𝒆𝒍𝒍𝒐𝒘 𝑺𝒆𝒓𝒊𝒆𝒔 (𝑷𝒓𝒐𝒇𝒇𝒆𝒔𝒔𝒊𝒐𝒏𝒂𝒍 𝑸𝒖𝒂𝒍𝒊𝒕𝒚)\n𝑪𝒐𝒓𝒅𝒍𝒆𝒔𝒔 𝑰𝒏𝒅𝒖𝒔𝒕𝒓𝒊𝒂𝒍 𝑺𝒄𝒊𝒔𝒔𝒐𝒓","rate":"@/-6600"},{"img":"https://drive.google.com/thumbnail?id=1Ml5aldIyZ9s5hJCJwG3mZ493oMEzn-gi&sz=w400","name":" Procut \nFlexible Magnetic pick up with claw and light ","rate":"@338/-"},{"img":"https://drive.google.com/thumbnail?id=1ojT5kAoVlLiGghAYsS8WCUqrt0NgyTmY&sz=w400","name":"Dismantling Automobile Fuel Tank Cap Wrench \nOr \nFuel Pump Removal Tool","rate":"@450/-"},{"img":"https://drive.google.com/thumbnail?id=1R08CIunO_or2d2eFFegllxzBCrncVY3T&sz=w400","name":"𝑷𝒓𝒐𝒄𝒖𝒕\nJumper cable (Cable Booster ) 1000amp","rate":"@₹413/-"},{"img":"https://drive.google.com/thumbnail?id=1HyIuBi1GyBN2oxoNhkHO9tF038NXc6l7&sz=w400","name":"𝑷𝒓𝒐𝒄𝒖𝒕\nHigh Quality Cable Booster (Jumper Cable )\n2000amp","rate":"🍁A type @863/-"},{"img":"https://drive.google.com/thumbnail?id=1QlGKyGkuo1oiqUq3F-h1CenDgalnbGPv&sz=w400","name":"𝐏𝐫𝐨𝐜𝐮𝐭 High Quality Tubeless tire repair kit","rate":"@₹135/-"},{"img":"https://drive.google.com/thumbnail?id=1_SzVI7jE-gBY3joT5NSkhZ6bFjscbo1J&sz=w400","name":"Complete Automobile Chain Breaker Kit","rate":"@825/-"},{"img":"https://drive.google.com/thumbnail?id=1DsrRItjUrZB99LhTuYSG5ad0Xo0ShUkf&sz=w400","name":"Procut\n1/2\" drive 32pcs Socket Set ","rate":"@2400/-"},{"img":"https://drive.google.com/thumbnail?id=17e5Orj1ddbfaQLWmLrPpXRhBhKemjpG0&sz=w400","name":"Aviation Tin Snip \n🍁Straight \n🍁Left \n🍁Right","rate":"@240/-"},{"img":"https://drive.google.com/thumbnail?id=1UYFAVHpG3Y7wm3dQkJfTZlpgkMp86Rk6&sz=w400","name":"24pcs Black Socket Set","rate":"@2175/-"},{"img":"https://drive.google.com/thumbnail?id=1R1pNY7XNFBew9IyBmrgtWSNh-7yHsYwF&sz=w400","name":"10pcs socket set with L handle","rate":"@563/-"},{"img":"https://drive.google.com/thumbnail?id=1geoBOFw8_ntj4lQzjmoArZLToppqWISN&sz=w400","name":"25pcs Socket Set \n(8mm to 32mm )\nMetal case ","rate":"@1875/-"},{"img":"https://drive.google.com/thumbnail?id=1PJEe_20Dt1CgkjqaGeXTfo49MmwP49kK&sz=w400","name":"Procut Ratchet Wrench ","rate":"6mm @120\n7mm @135\n8mm @135\n9mm @150\n10mm @165\n11mm @180\n12mm @203\n13mm @210\n14mm @240\n15mm @255\n16mm @270\n17mm @285\n18mm @315\n19mm @375\n20mm @405\n21mm @480\n22mm @518\n23mm @630\n24mm @705\n27mm @810\n30mm @900\n32mm @975"},{"img":"https://drive.google.com/thumbnail?id=1Fh3QuNkHC_jat5l7vrk2Es4oULZr6mXO&sz=w400","name":"Procut 7pcs Ratchet Wrench set","rate":"🍁1)Straight type @1163/-\n🍁2)Flexible type @1500/-"},{"img":"https://drive.google.com/thumbnail?id=17eALC2Ej0LXL3gqIoABWJjTJppUNr_2v&sz=w400","name":"Procut Adjustable Bend type(flexible) Ratchet Wrench","rate":" 8mm @158/- \n10mm@180/- \n11mm@188/-\n12mm@203/-\n13mm@218/-\n14mm@233/-\n16mm@278/-\n17mm@360/-\n19mm @413/-"},{"img":"https://drive.google.com/thumbnail?id=1MFkcuaoDAfTuGmOjBPxmUAicxhbZJh08&sz=w400","name":"𝐇𝐲𝐝𝐫𝐚𝐮𝐥𝐢𝐜 𝐁𝐨𝐭𝐭𝐥𝐞 𝐉𝐚𝐜𝐤 ","rate":"🎉2𝐓 @788/-\n🎉3𝐓@825/-\n🎉5𝐓@938/-\n🎉10𝐓@1313/-\n🎉16𝐓@2100/-\n🎉20𝐓@2280/-\n🎉32𝐓@3675/-\n🎉50𝐓@4050/-\n🎉50𝐓 𝐡𝐞𝐚𝐯𝐲 @5400/-"},{"img":"https://drive.google.com/thumbnail?id=1oDej01VygOhk0ilqcR1F6b8Q2dwf1iTY&sz=w400","name":"2Ton Trolley Jack ","rate":"🎉6.5 kg @2100/-\n🎉5.5 kg @1950/-"},{"img":"https://drive.google.com/thumbnail?id=12B3pZulmPL4veceRoGMsEph1NbQUkdeV&sz=w400","name":"Nut Revitor\nM3,M4,M5,M6,M8,M10,\nM12","rate":"@6225/-"},{"img":"https://drive.google.com/thumbnail?id=1ufeLC8v7qlhoOLkqXsl5iTPvb6qYDJ0R&sz=w400","name":"𝑵𝒖𝒕 𝑹𝒆𝒗𝒊𝒕𝒐𝒓 \n(𝑴3 ,𝑴4,𝑴5,𝑴6,𝑴8,𝑴10)","rate":"@3225/-"},{"img":"https://drive.google.com/thumbnail?id=1c803zDmEVSdwm0JTYmEsaumai1lA0lxK&sz=w400","name":"High Quality Piston Ring Compressor (stainless steel)","rate":"🍁3\" @240/-\n🍁4\" @285/-\n🍁6\" @398/-"},{"img":"https://drive.google.com/thumbnail?id=1Y2Rtc7crGmPcseBDBpKgm7gf6zD-IVt6&sz=w400","name":"15Lt Oil pan ","rate":"@570/-"},{"img":"https://drive.google.com/thumbnail?id=1uc6zICzRi4oebk8W9gYoIWliSFYJk5Av&sz=w400","name":"Procut 3 leg oil filter wrench ","rate":"1) Round  Straight legs @315/-\n2) Round Bend Legs @315/-\n3) Flat legs @263/-"},{"img":"https://drive.google.com/thumbnail?id=1XMU1EnDEVs6jygr5fCqpqzkrqqPOV8We&sz=w400","name":"Ali-556-1. Car Jumper Starter \n2000A.\nAli-556-2.   ","rate":"@7275/-"},{"img":"https://drive.google.com/thumbnail?id=1iKcGmVTjdzIYutUSZdbrbN9tjl_TjEjv&sz=w400","name":"Ali 556-3\nAli 556-4","rate":"@9000/-\n@9975/-"},{"img":"https://drive.google.com/thumbnail?id=1sixmgyR4j1tXvy-PtJMAClj82e-a9lKt&sz=w400","name":"Car Jumper Starter 1000A","rate":"@5700/-"},{"img":"https://drive.google.com/thumbnail?id=1ozyayCvvkAJiupciNhhptioN5g1W6uWq&sz=w400","name":"Ali 556-5 \nAli 556-6 \nAli 556-7 ","rate":"@9975/-\n@1200/-\n@150/-"},{"img":"https://drive.google.com/thumbnail?id=1N9SSQnsqIw_9GAL2I_cIa2L_ike5m_eW&sz=w400","name":"15pcs Adjustable Flexible wrench set    \n(8 9 10 11 12 13 14 15 16 17 18 19 22- 24mm) ","rate":"@3900/-"},{"img":"https://drive.google.com/thumbnail?id=1-XlpEGnZIIt8jlqODkAFP3IQTfKBaqhC&sz=w400","name":"8pcs Adjustable ratchet wrench set\n(8 10 12 13 14 17- 19mm) ","rate":"@2100/-"},{"img":"https://drive.google.com/thumbnail?id=13sOGR0mKeTv25aGUglb4MH3y2fjxSv4u&sz=w400","name":"Hose clamp plier \n(R type collar)","rate":"@263/-"},{"img":"https://drive.google.com/thumbnail?id=13VJ15bmHWhE-Y2kU7NdDDGImr23TqSXk&sz=w400","name":"Disc Brake Pad Spreader","rate":" @413/-"},{"img":"https://drive.google.com/thumbnail?id=1U2nXkkW7G_kl2aIvvboqPajPHzth1nrQ&sz=w400","name":"Heavy Duty \n300 kg \nPlastic Platform Trolley ","rate":"@2400/-"},{"img":"https://drive.google.com/thumbnail?id=1XW3-bTHtQRoQ881ZXFU6Rlm0CKsqtkgY&sz=w400","name":"Windsheild Wiper Arm remover ","rate":"@338/-"},{"img":"https://drive.google.com/thumbnail?id=1kh4zV_ja3Kngav8vY2MWsKZ21uI8Qd4d&sz=w400","name":"Battery Terminal Puller ","rate":"@375/-"},{"img":"https://drive.google.com/thumbnail?id=1AJj1e691yJflVoFrpqBCp8dbEKvzmUd5&sz=w400","name":"Brake Piston tool ","rate":"@413/-"},{"img":"https://drive.google.com/thumbnail?id=1ixfHhM-Sh0gtKqBVfEOl10WexQ1k_L7j&sz=w400","name":"𝐏𝐫𝐨𝐜𝐮𝐭 \n𝐆𝐫𝐞𝐚𝐬𝐞 𝐂𝐨𝐮𝐩𝐥𝐞𝐫","rate":"🍁𝐀𝐥𝐢 620 -1 @135/-\n🍁𝐀𝐥𝐢 620-2 @150/-"},{"img":"https://drive.google.com/thumbnail?id=1oWEXf61RBsgL484dyXeTyNc27EmhB0Fq&sz=w400","name":"Wiper Arm removal tool ","rate":"@188/-"},{"img":"https://drive.google.com/thumbnail?id=1i4-nTkCaO7fRJS_jdEQ7ZteF_6gllsRo&sz=w400","name":"131 pcs Helicoil thread repair kit ","rate":"@2475/-"},{"img":"https://drive.google.com/thumbnail?id=18ZrI2aXkDYf1oD4ZTH7WAhjgrSx31Znd&sz=w400","name":"Pipe Inner -Outer Reamer","rate":"@188/-"},{"img":"https://drive.google.com/thumbnail?id=1B3IZO9YIxBOMyxQkfmA-im7buVDsBnMA&sz=w400","name":"6 Row heavy duty Wire Brush ( Yellow Handle )","rate":" @60/-"},{"img":"https://drive.google.com/thumbnail?id=174BKPI1y7bnGssfWOTs_3jcSoc6A1t0G&sz=w400","name":"𝐁𝐌𝐖 𝐓𝐢𝐦𝐢𝐧𝐠 𝐓𝐨𝐨𝐥 𝐒𝐞𝐭","rate":"@7800/-"},{"img":"https://drive.google.com/thumbnail?id=12ooyUNbq9fBxfTAgj3_7iYGVfvmGEL8b&sz=w400","name":"Ac Manifold Gauge Set \n(Car ac repair kit)","rate":"@3225/-"},{"img":"https://drive.google.com/thumbnail?id=1zY5hjzIGu5iH4US3i-FtbdIxjeUY8mml&sz=w400","name":"½ \" Drive \n32pcs Socket set \n8mm -32mm ","rate":"@1275/-"},{"img":"https://drive.google.com/thumbnail?id=1irkm-zgkOo_Hojlk2YaLyoENZvnx4tUG&sz=w400","name":"46pcs socket set\nEco model","rate":"@413/-"},{"img":"https://drive.google.com/thumbnail?id=1vvh0_dv7B5w5RXwYNBxq-vuTguq2Nyno&sz=w400","name":"Automobile Diesel oil transfer pump 24V","rate":"@2700/-"},{"img":"https://drive.google.com/thumbnail?id=1_aFviWBYkWjxSuevgHz6-d7pbQNYwVml&sz=w400","name":"17inch Bolt cutter revitor","rate":"@450/-"},{"img":"https://drive.google.com/thumbnail?id=1i_vneXLcoQlI3Z6ROuDPuozDXGnBg-5T&sz=w400","name":"𝓐𝓻𝓶𝓮𝓪𝓽𝓾𝓻𝓮 𝓫𝓮𝓪𝓻𝓲𝓷𝓰 𝓹𝓾𝓵𝓵𝓮𝓻","rate":"🍁100𝓶𝓶 @375/-\n🍁150𝓶𝓶@525/-\n🍁200𝓶𝓶@675/-"},{"img":"https://drive.google.com/thumbnail?id=1ygGvg70Q_S-shwgCW_rFFCtn86b9dCuW&sz=w400","name":"🍁 Procut \nFlexible Magnetic pick up with claw and light ","rate":"@338/-"},{"img":"https://drive.google.com/thumbnail?id=1qc_osrL00DB0S5yLZk-KV6LCq_sHMCm-&sz=w400","name":"Telescopic Wrench with two long Spark plug  Spanner","rate":"@413/-"},{"img":"https://drive.google.com/thumbnail?id=1eUpKt6v4GqbmYDu6Wzk9MHCK99LFmsv9&sz=w400","name":"PPR Pipe Welding Machine uptill 63mm pipe sealing capacity","rate":"@3225/-"},{"img":"https://drive.google.com/thumbnail?id=102G6DKVcMTmwf1Wv6kGSHtwvI0lyqc-w&sz=w400","name":"Procut  PPR Pipe Welding Machine \nIndian style \nModel number HT 110 (75mm /90mm /110mm) ","rate":"@3675/-"},{"img":"https://drive.google.com/thumbnail?id=10e1JKueFQRRMx8Blr7CEp6ynWyPJlxpi&sz=w400","name":"Professional 4 way cross wheel spanner","rate":"@638/-"},{"img":"https://drive.google.com/thumbnail?id=1x8p7rUpLAZdTnXpGehhYW5u8JMxTXJ0V&sz=w400","name":"Procut ppr pipe welding machine 20-32","rate":"@975/-"},{"img":"https://drive.google.com/thumbnail?id=1scJFBSTjL0fLf7GEYY7jfyIulLufbbdJ&sz=w400","name":"Spark plug wrench","rate":"🍁 16mm @ 150/-\n🍁21mm @165/-"},{"img":"https://drive.google.com/thumbnail?id=1rZRT0vz12EyksNgBToUQ5MB54wFcpQLP&sz=w400","name":"Procut [CRV] ","rate":"🍁4pcs Extention Set @578/- [20 Sets crt]\n🍁3pcs Extention Set \n@428/-[20 Sets crt]"},{"img":"https://drive.google.com/thumbnail?id=1ycfeNsd3vVxFHwDlH5QT7wSe9vjD4URe&sz=w400","name":"Engine cleaning gun ","rate":"@375/-"},{"img":"https://drive.google.com/thumbnail?id=124YYltbXAp8PeNxYafBYIaLc5GURbVLq&sz=w400","name":"12inch L handle [CRV] ","rate":"@180/-"},{"img":"https://drive.google.com/thumbnail?id=1pbCXQ2kOWypAAY79SvFcEjiJaJWzOMaK&sz=w400","name":"🍁12pcs Trim removal set (blister card) \n🍁7pcs fuel line disconnector","rate":"@225/-\n @113/-"},{"img":"https://drive.google.com/thumbnail?id=19ko_U9dwBwsxxLGVe71AZuiE5-AMqCpB&sz=w400","name":"Trim removal key","rate":"@105/-"},{"img":"https://drive.google.com/thumbnail?id=13qTHP-lAgOmF8NenM0INlr9kO7xBGxVV&sz=w400","name":"🍁1)4pcs Nut Splitter Set \n🍁2) 2pcs Nut Splitter Set ","rate":"@1875/-\n825/-"},{"img":"https://drive.google.com/thumbnail?id=1sU-1HJrYtfNXie-DnhXVL3cDaWGe8P6N&sz=w400","name":"𝑷𝒓𝒆𝒔𝒔𝒖𝒓𝒆 𝑾𝒂𝒔𝒉𝒆𝒓 𝑵𝒐𝒛𝒛𝒍𝒆 5𝒑𝒄𝒔 𝒔𝒆𝒕 𝒊𝒏 𝑷𝒗𝒄 𝑩𝒂𝒈 (𝒓𝒆𝒅,,𝒚𝒆𝒍𝒍𝒐𝒘,,𝒈𝒓𝒆𝒆𝒏, 𝒘𝒉𝒊𝒕𝒆 𝒂𝒏𝒅 𝒃𝒍𝒂𝒄𝒌.) ","rate":"@263/-"},{"img":"https://drive.google.com/thumbnail?id=1Gj42oGpfe5ckKAQLwtd7vOvpwQ1ijDn5&sz=w400","name":"🍁Procut\n2ton  Shop Crane \n( GW 60kg)\nRed colour\n\n🍁Procut\n2ton  Shop Crane \n( GW  85 kg)\nRed colour","rate":"@12750/-\n\n @18000/-"},{"img":"https://drive.google.com/thumbnail?id=1Idz4R0K-Q4NFtl-vMrx0CLxaIrkmd6s6&sz=w400","name":"16inch Snap Ring plier set","rate":"@3225/-"},{"img":"https://drive.google.com/thumbnail?id=1OwFyVfMRRZ55NVfTQsBnWToyQs6dnoml&sz=w400","name":"Long F clamp plier ","rate":"14 inch @615/-\n18inch @863/-"},{"img":"https://drive.google.com/thumbnail?id=1BmVwjP7baAPczaLI1K8lwCUrh9sFmiVZ&sz=w400","name":"Procut Reversible Ratchet handle ","rate":"🍁 1) 3/4\" @1875/-\n🍁2) 1\" *@2325/-"},{"img":"https://drive.google.com/thumbnail?id=1-B1nrmpQvNqwuwM27s4KmcTpTgDv9nTr&sz=w400","name":"PROCUT\n Labour saving wrench ","rate":"🍁1) 1:64 @2550/-   \n🍁2) 1:68 @3075/-   \n🍁3) 1:78  @3750/- "},{"img":"https://drive.google.com/thumbnail?id=1jlh8WX0PDguTZNUU7Rx9PtgDLofIqxgd&sz=w400","name":"Garage Stool with wheel","rate":"@₹2475/-"},{"img":"https://drive.google.com/thumbnail?id=11X_2HFazP58EvSiInY3mgcW3HetN3JKe&sz=w400","name":"Fuel Tank LOCK Ring Wrench ","rate":"@638/-"},{"img":"https://drive.google.com/thumbnail?id=1MmSJmz_SEzUo4ocWiYVaR2o-tOAlAUWj&sz=w400","name":"8𝑙𝑏 𝐹𝑙𝑒𝑥𝑖𝑏𝑙𝑒 𝑃𝑖𝑐𝑘 𝑢𝑝 𝑤𝑖𝑡ℎ 𝑙𝑖𝑔ℎ𝑡 𝑏𝑙𝑖𝑠𝑡𝑒𝑟 𝑐𝑎𝑟𝑑 𝑝𝑎𝑐𝑘𝑖𝑛𝑔","rate":"@188/-"},{"img":"https://drive.google.com/thumbnail?id=1LmhPgFGWSRkKbvylySmOoQaWLJpo_Lng&sz=w400","name":"Trim removal  key set","rate":"@105/-"},{"img":"https://drive.google.com/thumbnail?id=1z8I_-PR09uSyYT4aUTdLMjYSra-sI1ry&sz=w400","name":"Long Arm Tree Pruner \n2.7meter  Alluminium long Arm Tree Prunner Rod ","rate":"@₹600/-\n@675/-"},{"img":"https://drive.google.com/thumbnail?id=1ltZfJ1gSKpJcFR-CsdUnAa3fAF92ePvo&sz=w400","name":"INGCO\n🍁 Grease gun\nGRG015001","rate":" @1013"},{"img":"https://drive.google.com/thumbnail?id=1XsZJme50QiVbomH4J9w_FmAnWNLhNeIn&sz=w400","name":"🍁6\" door upholstery remover ","rate":"@₹105/-"},{"img":"https://drive.google.com/thumbnail?id=1gI645VFBQeaLp5xlZxmF0igASIREIeN0&sz=w400","name":"26pcs 1\" & ¾\" drive (Combi ) Impact Socket Set ","rate":"@7800/-"},{"img":"https://drive.google.com/thumbnail?id=1YhntXYz2UIQSpnYDDhUVBY5AA2ojw0zF&sz=w400","name":"20pcs ¾ \" drive Socket set ( CRV quality ) ","rate":"@5925/-"},{"img":"https://drive.google.com/thumbnail?id=17B5zb6Blej-RzPUY4K3Tmvd84sJdHZGH&sz=w400","name":"𝑷𝒓𝒐𝒄𝒖𝒕 Chain breaker \n🍁420-530mm","rate":"@180/-"},{"img":"https://drive.google.com/thumbnail?id=1gj_3k979LXl35tH730XQbP_24s_fEDNU&sz=w400","name":"𝑷𝒓𝒐𝒄𝒖𝒕\n🍁Automobile Tester ","rate":" @143/-"},{"img":"https://drive.google.com/thumbnail?id=1nF9m5sFsBL-NFSyqlN5gXViVuJ6hS2eA&sz=w400","name":"15 inch full round silicon gun (with metal cap)\n9\"𝐹𝑢𝑙𝑙 𝑅𝑜𝑢𝑛𝑑 𝑆𝑖𝑙𝑖𝑐𝑜𝑛 𝐺𝑢𝑛 \n(Dual Purpose)","rate":"1) Ali 236-1 Silver colour @450/- \n2) Ali 236 -2 Brown colour @488/-\n@375/-"},{"img":"https://drive.google.com/thumbnail?id=1IFbScSs_1GnREQ68JIAT1lJFOm0C64lT&sz=w400","name":"5pcs Front end Suspension repair tool kit ","rate":"@2925/-"},{"img":"https://drive.google.com/thumbnail?id=1wEzXIIBo-JwHsEot_r5O7LNEtjNBL1Ic&sz=w400","name":"Automotive \nLower Control Arm and Ball Joint removal plier","rate":"@450/-"},{"img":"https://drive.google.com/thumbnail?id=1Boq4CcPA4vh9EBJxJzyQgx77WonEM30H&sz=w400","name":"11pcs Interchangeable ring head torque wrench set ","rate":"@15750/-"},{"img":"https://drive.google.com/thumbnail?id=1suoQKnpG_JRMg4sZkYqnAbJCaYZIrL-U&sz=w400","name":"Procut \nDigital toque wrench ","rate":"¼\"  Drive 0.3 -6 nm @5100/-\n¼\"  Drive 0.6 -12nm \n@5100/-\n¼\" Drive 1-20nm \n@5100/- \n⅜\" Drive 1.5 -30nm @5550/-\n⅜\" Drive 3-60nm\n@5550/-\n½\" Drive 60-200nm @6975/-"},{"img":"https://drive.google.com/thumbnail?id=1KFS2sImfSGRJlfS9OiLdUygtgX8pIEN8&sz=w400","name":"11pcs interchangeable open head torque wrench set","rate":"@15750/-"},{"img":"https://drive.google.com/thumbnail?id=1GZxpc5n5TcycwwWMMQ-QbLbqwLWunyei&sz=w400","name":"ᴩʀᴏᴄᴜᴛ\n7ᴩᴄꜱ ᴄᴀʀ ᴩᴏʟɪꜱʜᴇʀ ᴩᴀᴅ ꜱᴇᴛ","rate":"🍁4 ɪɴᴄʜ @263/- ꜱᴇᴛ\n🍁5 ɪɴᴄʜ @338/-ꜱᴇᴛ\n🍁6 ɪɴᴄʜ @488/- ꜱᴇᴛ\n🍁7ɪɴᴄʜ @600/- ꜱᴇᴛ"},{"img":"https://drive.google.com/thumbnail?id=1nrpCTmqbj8HvVDzXVyr2LEl7oGdhSqSz&sz=w400","name":"𝐏𝐫𝐨𝐜𝐮𝐭 \n𝐇𝐢𝐠𝐡 𝐐𝐮𝐚𝐥𝐢𝐭𝐲 𝐏𝐫𝐞𝐬𝐬𝐮𝐫𝐞 𝐰𝐚𝐬𝐡𝐞𝐫 (𝐜𝐨𝐩𝐩𝐞𝐫 )","rate":"@4500/-"},{"img":"https://drive.google.com/thumbnail?id=1artVnkUY9cg5k1M4Q9U81lL2BExcRLmL&sz=w400","name":"Procut \nCar polisher heavy woolen pad ","rate":"🍁5inch @225/-\n🍁7inch @300/-"},{"img":"https://drive.google.com/thumbnail?id=1tbkouvVKfAfC1xIWmo3sEoynFVuz__eU&sz=w400","name":"26 Blade filler gauge ","rate":"@165/-"},{"img":"https://drive.google.com/thumbnail?id=19eQdleHdvNIu-uLUQqyF3fIHcgFJluJx&sz=w400","name":"5 pcs tire rim changer and  repair kit","rate":"@375/-"},{"img":"https://drive.google.com/thumbnail?id=1133yhkCHjBke8XqTXwLyrIotpaZyWrtS&sz=w400","name":"Impact Driver with 6bits","rate":"@375/-"},{"img":"https://drive.google.com/thumbnail?id=1qcfV34j660N2ZLsfsBnLiLV-fdVI7I7x&sz=w400","name":"28inch long Professional Tire Tube Remover and Changer ","rate":"@450/-"},{"img":"https://drive.google.com/thumbnail?id=1vAVjDAvpsiPtjHuE4Y9noIK0Io1CRXH1&sz=w400","name":"3pcs Oxygen Sensor Socket Set ","rate":"@713/-"},{"img":"https://drive.google.com/thumbnail?id=17vD453pqBd0CsXNa9QSVU05BiUVx9Hma&sz=w400","name":"🍁Impact 𝑺𝒐𝒄𝒌𝒆𝒕 𝑨𝒅𝒂𝒑𝒕𝒐𝒓  ( 𝑪𝒐𝒏𝒗𝒆𝒓𝒕𝒐𝒓)","rate":"¾𝐅 𝐗 ½𝐌@188/-\n½𝐅 𝐗 ¾𝐌@113/-\n¾𝐅 𝐗 1\"𝐌@240/-\n1\"𝐅 𝐗 ¾𝐌@240/-\n1\"F X ½M @240/-\n⅜𝐅 𝐗 ½𝐌@75/- \n½F X 1\" M@240/-"},{"img":"https://drive.google.com/thumbnail?id=1mqHsvSRIp14VgDCAxelY4RyYUwqCAJt4&sz=w400","name":"Procut \nSPLIT HYDRAULIC BEARING PULLER WITH PUMP ","rate":"🍁 5 TON @6300/-\n🍁10 TON @8100/-"},{"img":"https://drive.google.com/thumbnail?id=14jX3riZ9L25hTyuUW7UcV_CN3IBycVHm&sz=w400","name":"Automobile manifold gauge set ","rate":"@1725/-"},{"img":"https://drive.google.com/thumbnail?id=1CA3zvJpnnTUIldLX5l4xZUGUPWylfVN0&sz=w400","name":"Jack Stand ((Ghori) 2pcs set \nWith 𝐅𝐨𝐨𝐭 𝐏𝐚𝐝 \n&  𝐄𝐱𝐭𝐫𝐚 𝐋𝐨𝐜𝐤𝐢𝐧𝐠 𝐏𝐢𝐧 for \nExtra Security ","rate":"1) 3ton @1613/-\n2) 6 ton @2850/-"},{"img":"https://drive.google.com/thumbnail?id=1jxSDgq2_2t0hrJN1n1InIRsXKRGVQ_cF&sz=w400","name":"7pcs Auto body Fender kit","rate":"@2850/-"},{"img":"https://drive.google.com/thumbnail?id=1FjYfxmbqjeNT7ExRQM-dXGQwyVaF2ESx&sz=w400","name":"22pcs Autobody Repair kit","rate":"@4500/-"},{"img":"https://drive.google.com/thumbnail?id=1_q_06q0XONsHe5MxgfvLT4n9W3BVCSnW&sz=w400","name":"Manifold gauge kit for car ac ","rate":"@3225/-"},{"img":"https://drive.google.com/thumbnail?id=1xpSqW9AW8AoeEoWK9-nCKv8VBh5pBHaL&sz=w400","name":"Engine Fuel Injection pressure tester kit ","rate":"@1800/-"},{"img":"https://drive.google.com/thumbnail?id=1InvEuAcMDI1nqaGrStcbUH3EVtVz-Lk3&sz=w400","name":"Diesel Engine Compression Tester kit","rate":"@3600/-"},{"img":"https://drive.google.com/thumbnail?id=1u2h94Bd0nuuLZBWmY5uiJHOY2vAijYgW&sz=w400","name":"Engine Compression tester kit ","rate":"@975/-"},{"img":"https://drive.google.com/thumbnail?id=1wOVZrp-FWKPjFwFOW3yyI6iJBwvixdGA&sz=w400","name":"Hydraulic Bearing Puller","rate":"🍁5T @4275/-\n🍁10T @6900/-\n🍁15T @9150/-\n🍁20T @14400/-\n🍁30T @18750/- \n🍁50T @29250/-"},{"img":"https://drive.google.com/thumbnail?id=1GcFW8T9ryKR6tlCpkpD5ILlJ63bOCyhQ&sz=w400","name":"Long Air blow gun (Eco model) \nHigh quality long Air Blow Gun \n🍁Brass nozzle\n🍁Made from high quality vergin material \n🍁Profesaional Quality ","rate":"@75/-\n@165/-\n"},{"img":"https://drive.google.com/thumbnail?id=1M7DHngEfaVG_V-pywCw0paU5jQdhKCpP&sz=w400","name":"Automobile compressor","rate":"@1185/-"},{"img":"https://drive.google.com/thumbnail?id=1m8AmsL02knv1coYmNvTeWRzF6K9QMSh0&sz=w400","name":"Hand barrel pump","rate":"@1215/-"},{"img":"https://drive.google.com/thumbnail?id=1BXRs2BAk_Wbe6kUI2cvdvUU-UgUpHBud&sz=w400","name":"3 layer tools trolley 0.7mm ","rate":"@3075/-"},{"img":"https://drive.google.com/thumbnail?id=1Ec-Lpo5NPnCe8N6jGCwkAXmV1nAqqqhX&sz=w400","name":"\n Procut Electric Barrel pump ","rate":"@6750"},{"img":"https://drive.google.com/thumbnail?id=10L6h89cVaJcGzqLkI-KNDHX0RNNdYDG6&sz=w400","name":"Electronic meter for Electric Barrel Pump","rate":"@2550/-"},{"img":"https://drive.google.com/thumbnail?id=10L62yyZkYo2DgjhfY4-UixYUOJRGnFcR&sz=w400","name":"🍁15inch Pneumatic Sausages Gun \n🍁9inch Pnuematic Sausages Gun ","rate":"@3225/-\n@2400/-"},{"img":"https://drive.google.com/thumbnail?id=1_NqIyltvw5ntOH9N23L4i_XLawfi4nuD&sz=w400","name":"40 pcs tap and die set [Big Case] ","rate":"@1875/-"},{"img":"https://drive.google.com/thumbnail?id=1LnyfH4iMIUEYSLlwKTi3AhMDW-oa3i-C&sz=w400","name":"Procut \nLoose Crv long Allenkey ","rate":"🍁1.5mm @8/-\n🍁2mm@9/- \n🍁2.5mm@14/-\n🍁3mm@15/-\n🍁4mm@20/-\n🍁5mm@24/-\n🍁6mm@32/-\n🍁8mm@45/-\n🍁10mm@60/-\n🍁12mm@98/-\n🍁14mm@188/-\n🍁17mm@255/-\n🍁19mm@450/- \n🍁🍁🍁🍁🍁\nEXTRA LONG BALL ALLENKEY\n🍁5mm@27/-\n🍁6mm@35/-\n🍁8mm@50/-\n🍁10mm@68/-\n🍁12mm@105/-\n🍁14mm@210/-\n🍁17mm@315/-\n🍁19mm@495/- \n🍁22mm@638/-\n🍁24mm @1013/-"},{"img":"https://drive.google.com/thumbnail?id=1UlAjuWF2OF_JKTZEXVgIhnRAqonOStpF&sz=w400","name":"Heavy duty greese gun \nHCG -200 ","rate":"@825/-"},{"img":"https://drive.google.com/thumbnail?id=1lurU3RbaSgynQ0llEBM2Y2YSiFpRbj2w&sz=w400","name":"Procut range of Ratchet handle ","rate":"🍁 1)  1/2 \" @300/-,\n🍁2) 3/8\" @263 /-\n🍁3) 1/4\" @225/-"},{"img":"https://drive.google.com/thumbnail?id=1iabcbfTfaUGZKp40e9GG9PDAk4m_j4UM&sz=w400","name":"Greese gun Professional quality ","rate":"@938/-"},{"img":"https://drive.google.com/thumbnail?id=1iF7mByuJ2EFfcM4igbIjgm2BRNoEANfM&sz=w400","name":"Internal Bearing Puller ","rate":"@825/-"},{"img":"https://drive.google.com/thumbnail?id=1CO46n1axO-2zGPC-ZQiNfhEYedWJ4ejK&sz=w400","name":"High Professional Quality\n7inch Circlip plier\n🍁Internal Straight \n🍁External Straight\n🍁Internal Straight Bend \n🍁External Straight Bend ","rate":"@155/- each"},{"img":"https://drive.google.com/thumbnail?id=1_O8r8wglbG7aCuCmpTKfA_coAEWc4qKk&sz=w400","name":"Coil Spring Compressor  Tool","rate":"@₹1875/-"},{"img":"https://drive.google.com/thumbnail?id=1bmKGjZHRzrI4MwbUBV9MX7WdI2_VcQMu&sz=w400","name":"27pcs High Quality Cup type Oil filter Removal Wrench Set","rate":"@4125/-"},{"img":"https://drive.google.com/thumbnail?id=11fqlHhV9V7m0BVA1eZBX3FJRozBUx0mi&sz=w400","name":"3pcs hose clamp pinch off plier set","rate":"🍁Straight @₹338/-\n🍁Bend @₹338/-"},{"img":"https://drive.google.com/thumbnail?id=19vPHU7H6T0VcQDxSUvIdxA_WS_zgIy6l&sz=w400","name":"4pcs High Quality Pick and Hook Set\nSpecially for Automobiles Industries \nItem no D02304\nAli 951-4","rate":"@188/-"},{"img":"https://drive.google.com/thumbnail?id=1PqeqRiRhhAUewG96pp29voByVIp_mheW&sz=w400","name":"𝐏𝐫𝐨𝐜𝐮𝐭 \n𝐇eavy 𝐒ilicon 𝐆un (most popular) ","rate":"@293/-"},{"img":"https://drive.google.com/thumbnail?id=1b04-O-4lFkvyfo4yTs_0qCXLpPktKLok&sz=w400","name":"30pcs High Quality bits and Socket set with Flexible  Screwdriver Sets\nSpecially for Automobiles Industries \nItem no D3230\nAli 951-6","rate":"@375/-"},{"img":"https://drive.google.com/thumbnail?id=1iu95biWzu5vrBFS1iwy0SUwNUn-WlVaI&sz=w400","name":"Procut 𝐒𝐜𝐫𝐞𝐰 𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐨𝐫","rate":"🍁1) 5pcs @113/-\n🍁2) 6pcs @150/-"},{"img":"https://drive.google.com/thumbnail?id=1dLAD2Nu3a-IWsw_n5ORPUb2BIAxKORd-&sz=w400","name":"Procut Professional Quality \n½\" impact sockets","rate":"8mm @113/-\n10mm@113/-\n12mm @113/-\n13mm @113/-\n17mm @128/-\n19mm @128/-\n21mm @143/-\n22mm @158/-"},{"img":"https://drive.google.com/thumbnail?id=1CFFsqNz4AmxY-nSSVFWmZKTlidCmvYPw&sz=w400","name":"10pcs Broken Head Tap Remover Set ","rate":"@1875/-"},{"img":"https://drive.google.com/thumbnail?id=1-aoZitTRFnhWP_dEQNcCgeRaJ0FA9naL&sz=w400","name":"Procut Professional Quality [Crome moledium sockets ]\n3/4 \" impact sockets \n[90mm lenght ]","rate":"19mm @360/-\n24mm @360/-\n28mm @390/-\n36mm@450/-\n38mm @480/-\n41mm @510/-\n46mm @690/-"},{"img":"https://drive.google.com/thumbnail?id=1xP5ApKAugZgs9MVwmKHlI_9Te9Ryvrev&sz=w400","name":"Procut Professional Quality [Crome moledium sockets ]\n10pcs ½ \" drive impact socket set \n[10mm to 24mm ] ","rate":"@1650/-"},{"img":"https://drive.google.com/thumbnail?id=1CFcQ85nDlbl1smVd366E2oYZ4Eko92DT&sz=w400","name":"Procut \nCORDLESS Grease Gun \nWith 2 battery and a Charger","rate":"@6750/-"},{"img":"https://drive.google.com/thumbnail?id=1xjnuVWBVZElL1Y0fwOeCq_OYsraXjQQX&sz=w400","name":"OBD Scanner V521 [Latest Model ]","rate":"@₹3750/-"},{"img":"https://drive.google.com/thumbnail?id=1aKK-jBQWBnJHbiReklFW6BOUtzDHw9Wf&sz=w400","name":"𝑫𝒊𝒈𝒊𝒕𝒂𝒍 𝑫𝒊𝒔𝒑𝒍𝒂𝒚 𝑨𝒖𝒕𝒐𝒎𝒐𝒃𝒊𝒍𝒆 𝑻𝒆𝒔𝒕𝒆𝒓 ","rate":"@225/-"},{"img":"https://drive.google.com/thumbnail?id=186n-i00cjAvhOHEwTxEFekatrkDSmYNj&sz=w400","name":"OBD scanner T300","rate":"@3375/-"},{"img":"https://drive.google.com/thumbnail?id=1TT7wTtarxdORcyFCInxsgHAlTdbWoZvs&sz=w400","name":"Internal Inner bend tip Snap ring plier","rate":"@188/-"},{"img":"https://drive.google.com/thumbnail?id=1Ok-VcbKI9xSDwAMdU8MLZ1kAUZk8wtO-&sz=w400","name":"Procut Professional Grease Bucket ,\n technical detail \nInlet Pressure 0.6-8MPA \nCylinder Dia 70mm\nFlow Rate 0.85L/min\nOperating Pressure  30-40MPA\nPressure Rate 50:1\nPressure steel hose \nDrum Application 12L/20L /25L /40L availabe ","rate":"🍁MC 8 -12L @7050/-\n🍁MC 9 -20L @8550/-\n🍁MC 9-25L @9150/- \n🍁MC 9-40L @9750/- "},{"img":"https://drive.google.com/thumbnail?id=1je8fPoP5gplhGiG0APJYrmfU9WoWd_Xu&sz=w400","name":"14mm Spark Plug Socket","rate":"@98/-"},{"img":"https://drive.google.com/thumbnail?id=1ZNGoR1d53oXIvsToSCw6h-zec1xhYbsR&sz=w400","name":"BW -200 Rechargable Led Head Lamp ","rate":"@210/-"},{"img":"https://drive.google.com/thumbnail?id=1TxUwREO2yPdc4kT7Bn8RJohNa_XH7YQN&sz=w400","name":"24v pump ","rate":" @525/-"},{"img":"https://drive.google.com/thumbnail?id=13XV0vHoJWRxwYkbwesLLQKvrXCAlqEK5&sz=w400","name":"Car Stretch Belt Remover / Installer","rate":"@540/-"},{"img":"https://drive.google.com/thumbnail?id=1R03A4A0bf8fhB78W3sD1h2EdBMomhQ8e&sz=w400","name":"Complete Automobile Chain Breaker Kit","rate":"@825/-"},{"img":"https://drive.google.com/thumbnail?id=1w8H31aovOiEOhhztKdSaYkfchf92Fsz1&sz=w400","name":"Engine Compression tester kit ","rate":"@975/-"},{"img":"https://drive.google.com/thumbnail?id=1oto503AjojroqsmfVXAfFU1F7v3fq3BY&sz=w400","name":"Trim and Panel Removal Tool","rate":"@105/-"},{"img":"https://drive.google.com/thumbnail?id=13HDyh2J9xcmh7DgpPGL-smbhy_foVDVK&sz=w400","name":"Procut\n11inch F clamp plier","rate":"@413/-"},{"img":"https://drive.google.com/thumbnail?id=1scLsGZ_aR5mbru_zLcLZ19dm4pc_mkuh&sz=w400","name":"6pcs pin punch set\n6pcs pin punch and chisel set \n","rate":"@525/-\n@638/-"},{"img":"https://drive.google.com/thumbnail?id=1ZWHKcNybMi16RUpiOvwtZwxHq9nlKFWv&sz=w400","name":"Adjustable C hook spanner 51-121mm","rate":"@413/-"},{"img":"https://drive.google.com/thumbnail?id=1et2TSiBOeqqB1TWu6a0rPes8OqsmgR_1&sz=w400","name":"Professional Emergency Air compressor kit ","rate":"@2963/-"},{"img":"https://drive.google.com/thumbnail?id=1azw53qbnWoryH92vcw_DVzPVVtTHsPbW&sz=w400","name":"Tire inflator (Car compressor) ","rate":"@1275/-"},{"img":"https://drive.google.com/thumbnail?id=1T_dpeZxLR24CAUUrgjVosb93Ze3ZiZ5q&sz=w400","name":"21pcs Disc Brake caliper ","rate":"@1350/-"},{"img":"https://drive.google.com/thumbnail?id=1zUtLQUDMaXtuhDO_2eVKd55QInPxD7SO&sz=w400","name":"Circuit Falt detector kit ","rate":"@6900/-"},{"img":"https://drive.google.com/thumbnail?id=1IZGTuL2L2XVTCJKlmAuqdoozMGMNs7n-&sz=w400","name":"𝐄𝐥𝐞𝐜𝐭𝐫𝐢𝐜 𝐑𝐞𝐯𝐢𝐭 𝐆𝐮𝐧 \n3.2 /4 /4.8mm  𝐑𝐞𝐯𝐢𝐭 ","rate":"@₹8100/-"},{"img":"https://drive.google.com/thumbnail?id=1Xb03phW7jxjuMGRQDaLAdYHlsQqNASWZ&sz=w400","name":"Universal balancer and Gear puller ","rate":"@₹675/-"},{"img":"https://drive.google.com/thumbnail?id=1-S5CXmFMvw23J38SSYfffyJgNMmLbVdQ&sz=w400","name":"1/2 impact wrench adaptor for sds plus drill bit","rate":" @188/-"},{"img":"https://drive.google.com/thumbnail?id=1OjbXHd1xnczlxkZ3R7SsSjzeZMrYDLsr&sz=w400","name":"14pcs Chuck Bearing Puller and separator kit","rate":"@₹3450/-"},{"img":"https://drive.google.com/thumbnail?id=1frS7Cm77wk47U_9LVSflLQMZLADQQfk8&sz=w400","name":"½\" universal joint [black finish] ","rate":"@₹105/-"},{"img":"https://drive.google.com/thumbnail?id=1hpys-Ke44infDoL3GJyiYKoGF72phkDP&sz=w400","name":"10 Ton 𝐇𝐲𝐝𝐫𝐚𝐮𝐥𝐢𝐜 𝐁𝐨𝐝𝐲 𝐑𝐞𝐩𝐚𝐢𝐫 𝐊𝐢𝐭","rate":"@₹10275/-"},{"img":"https://drive.google.com/thumbnail?id=1gkd289zYOQLULbdCMqN54ZdHu5_v4mBO&sz=w400","name":"Heavy Duty \nWobble free Centre Scissor Jack for Motorcycle ","rate":"@₹9375/-"},{"img":"https://drive.google.com/thumbnail?id=1-WloWWamXHRX8vkndaUUUgQFouibUM2G&sz=w400","name":"Automobile Tire Balancer plier ","rate":"@₹675/-"},{"img":"https://drive.google.com/thumbnail?id=12SkI-U6RdSy9_4vK6E7ELh2FjpgBR2gd&sz=w400","name":"6pcs Spark Plug Spanner Set","rate":"@₹525/-"},{"img":"https://drive.google.com/thumbnail?id=1a-m7HKf1nVcgcJxTzJw1zyFNauP86IS-&sz=w400","name":"Metal Roller","rate":"@₹225/-"},{"img":"https://drive.google.com/thumbnail?id=1jhXT-IHp31JMUNxmKEbJTiEqgl0h2cEF&sz=w400","name":"24 inch round crow bar for tire removing","rate":"@₹300/-"},{"img":"https://drive.google.com/thumbnail?id=1hNhJIgKqcV9azH-sFCbPSUH75gLesG1A&sz=w400","name":"24inch Flat tire lever ","rate":"@398/-"},{"img":"https://drive.google.com/thumbnail?id=1Mo-yWbirVTxGcedh83371VF12fUvL1Sb&sz=w400","name":"Silicon roller with wooden handle for Tire Puncher","rate":"@₹150/-"},{"img":"https://drive.google.com/thumbnail?id=11YXvjtiKKuYrdr-4c0kWxdzDw0Mgy-a3&sz=w400","name":"High Quality Double Barrel Foot Pump","rate":"@₹765/-"},{"img":"https://drive.google.com/thumbnail?id=1bEmUskTGrq6ZhbOC-kzdMMi6NFUhvKYs&sz=w400","name":"Procut\nHigh Quality Electric Preasure Washer \n2500W\n100% Copper motor \n10L/min High Flow \nPortable \nFor car and home \nWash with total stop system","rate":"@10200/-"},{"img":"https://drive.google.com/thumbnail?id=1kJwycJnNtgPwvXsxjwwMzbB11z4OzMKl&sz=w400","name":"High Commercial Pressure Washer 3000W","rate":"@32400/-"},{"img":"https://drive.google.com/thumbnail?id=1xzzQjXTctYSspQsJJo90OoS7faKV0KC4&sz=w400","name":"High Commercial Pressure Washer 3500W","rate":"@52500/-"},{"img":"https://drive.google.com/thumbnail?id=165iqmaBtBv1q1W_6GeKk-OIxKiPE4Aoq&sz=w400","name":"High Commercial Pressure Washer 2800W","rate":"@11400/-"},{"img":"https://drive.google.com/thumbnail?id=1-9AG-2evdahKauBbxXMY7ss7Wb8ovw8D&sz=w400","name":"2 cup glass suction \nWith flexible center handle ","rate":"@675/-"},{"img":"https://drive.google.com/thumbnail?id=1AUcnWjZdgYbgOPax2AECV372wvl4qeWB&sz=w400","name":"Metal Body Automobile Tester \n(More stronger,More lasting , more easy to used)","rate":"@₹143/-"},{"img":"https://drive.google.com/thumbnail?id=1TzmWRMNpXO7ZrH8ByK-8tMevQN61eeL3&sz=w400","name":"Car Engine Oil Quality tester ","rate":"@₹4800/-"},{"img":"https://drive.google.com/thumbnail?id=1UuNpKF7NnQyRWrZANvQTYG3rS3NTlIDf&sz=w400","name":"Battery System Tester ","rate":"@₹12600/-"},{"img":"https://drive.google.com/thumbnail?id=1rQngVVP2WdslIiIdIcf3W3GMWWXbcP1j&sz=w400","name":"\"Automotive Hose Clamp Pliers\"","rate":"@₹675/-"},{"img":"https://drive.google.com/thumbnail?id=19AF1N-8wgmuhvt5hqz86B4uPrxBCPoR4&sz=w400","name":"Industrial Ratchet ","rate":"46mm  @₹3300/-\n60mm @₹4650/-"},{"img":"https://drive.google.com/thumbnail?id=1NPP7vOeBUKJXqDopOPzjLQ-DZlC9s5FI&sz=w400","name":"\"Automotive Hose Clamp Pliers\" ","rate":"@₹675/-"},{"img":"https://drive.google.com/thumbnail?id=1WmSRIa5hhJbEROJSWIh50FX0QGGRq0mW&sz=w400","name":"Auto Scratch Repair Touch up pen \n1 black and 1 white \nSet of two pcs","rate":"@₹90/- pair"},{"img":"https://drive.google.com/thumbnail?id=1ny-QaNj4Ns1u87Dg2l_SUUCFcGZveEuT&sz=w400","name":"Safety hammer with seat belt cutter","rate":"@135/-"},{"img":"https://drive.google.com/thumbnail?id=1ccmx7wCUIhn6r-RVKcbRRsbIAUMMzJKb&sz=w400","name":"7pcs Crv  Extra long Hex Bit Socket Set [110mm long ]","rate":"@₹638/-"},{"img":"https://drive.google.com/thumbnail?id=1YsQkL0WkAjbGSvhFnWdV2cfX8sh4taam&sz=w400","name":"Fuel pump and vacumm tester gauge","rate":"@₹825/-"},{"img":"https://drive.google.com/thumbnail?id=10GTdfN9tJJI1yBJhAnL02a49Q-T5AtE0&sz=w400","name":"12V Car Battery tester ","rate":"@₹1875/-"},{"img":"https://drive.google.com/thumbnail?id=1Io6ea4CWnfjuvuxFqgfluI3TqLjPK20n&sz=w400","name":"32pcs Universal Radiator Compression tester kit ","rate":"@5475/-"},{"img":"https://drive.google.com/thumbnail?id=1xtScbY5vSQBg9ox3fuYRfs8NswQ6gPE0&sz=w400","name":"18L [5 gallon ]\nAir Tire Bead Seater Blaster ","rate":" @₹3975/-"},{"img":"https://drive.google.com/thumbnail?id=17znCh0o6y1Irj-xwOnkgygyma3gPGg0I&sz=w400","name":"Heavy Duty Pin Punch ","rate":"@₹150/-"},{"img":"https://drive.google.com/thumbnail?id=155zYAYwrmKXJhvPXAj6oxCnueZQ8035W&sz=w400","name":"Auto Air Conditioning Leak Detection Repair tool kit","rate":"@₹7200/-"},{"img":"https://drive.google.com/thumbnail?id=1dQOp4LF5VWlE7pdc_Y2wbPjKOBwLftm5&sz=w400","name":"Procut 7pcs Ratchet Wrench set","rate":"🍁1)Straight type @1163/-\n🍁2)Flexible type @1650/-"},{"img":"https://drive.google.com/thumbnail?id=11qhMWddQy5rmY_BodjCOc9e_ANK6Gpel&sz=w400","name":"Auto Brake Bleeding kit and Hand held vacuum pump","rate":"@₹863/-"},{"img":"https://drive.google.com/thumbnail?id=1oiP4UqcOkJNyZjGQyFLTrHWCaw3SWm8K&sz=w400","name":"PROCUT \nAir Compressors ","rate":"9lt     @₹6750/-\n30lt   @₹7800/-"},{"img":"https://drive.google.com/thumbnail?id=1AK8NT0Nub9xM2qQPPJmeyzUgBM0vSEFj&sz=w400","name":"8pcs Adjustable ratchet wrench set\n(8 10 12 13 14 17- 19mm)","rate":" @2100/-"},{"img":"https://drive.google.com/thumbnail?id=1Tjv2Iyht-XUo0gWL4bdouOyaa8VT3G79&sz=w400","name":"Long Air Impact wrench bracket","rate":" 5250/-"},{"img":"https://drive.google.com/thumbnail?id=1wB21YTw_J741Vce33teaPHOB9qT6hpga&sz=w400","name":"3pcs Silicon Sealant Cleaner tool set","rate":"@263/-"},{"img":"https://drive.google.com/thumbnail?id=1A3Si38UGzo19jsPQitZiX3l1YoSqXmPt&sz=w400","name":"Universal Socket","rate":"@203/-"},{"img":"https://drive.google.com/thumbnail?id=1ZZWmoanmGqiQwkdlysMLMaetmiCnG-dg&sz=w400","name":"Scissor Jack ","rate":"1)2T jack   with Labour saving handle @825/-\n2) 3T jack with Labour saving handle @975/-\nSaving Ratchet Available @113/-"},{"img":"https://drive.google.com/thumbnail?id=1LMUCryngfQ5UA2b208iqzxFDzT9STvDG&sz=w400","name":"1/2\" Swivel  U Joint Impact Socket ","rate":"@165/-"},{"img":"https://drive.google.com/thumbnail?id=1ZDiFr7QJoj2f7dIyjdDocqc11j2uqmOo&sz=w400","name":"½\" Drive ,\n Oxygen Sensor Socket Wrench ","rate":"🍁22mm@180/-\n🍁17mm (for 2 wheelers) *@180/-\n🍁19mm *@180/-\n🍁21mm *@180/-"},{"img":"https://drive.google.com/thumbnail?id=1_N1UMJSUzlbdaK6Ru3G1C4iB1Xdf12lh&sz=w400","name":"Automobile Relay Tester","rate":"@833/-"},{"img":"https://drive.google.com/thumbnail?id=1zv7Xy22A4mmNqppgiP0K9_laQEplLXO0&sz=w400","name":"Cordless grease bucket pump","rate":"@11250/-"},{"img":"https://drive.google.com/thumbnail?id=1suVlap734QFVjlDp7gNpnOfrVvzV2wNo&sz=w400","name":"Ball head removal tools ","rate":"@450/-"},{"img":"https://drive.google.com/thumbnail?id=1enaQpVp9MUtBBKN3t1Y80mLbCoh5QgNv&sz=w400","name":"Sliding hammer bearing puller","rate":"@₹4050/-"},{"img":"https://drive.google.com/thumbnail?id=1lhOEFXFuzIYDzkUsrTKERtRntwPxMJar&sz=w400","name":"Thumbwheel Ratchet wrench ","rate":"🎉1/2\" @203/- \n🍁3/8\"@203/- \n🎉1/4\" @ 203/-"},{"img":"https://drive.google.com/thumbnail?id=16YsTa6hxbrm_gHbd4mNAm7JlfFlMN7pW&sz=w400","name":"𝐓𝐰𝐨 𝐰𝐡𝐞𝐞𝐥𝐞𝐫 𝐫𝐞𝐚𝐫 𝐰𝐡𝐞𝐞𝐥 𝐬𝐭𝐚𝐧𝐝 ","rate":"@1913/-"},{"img":"https://drive.google.com/thumbnail?id=1lOBC8iYvpSjf2FEcbbc9gmLuVGPukR-5&sz=w400","name":"Brake Fluid Tester","rate":"@180/-"},{"img":"https://drive.google.com/thumbnail?id=1Fs_a32DD77Ta30MGANN5S1EoKGm1XCSd&sz=w400","name":"Rim protector","rate":"@113/-"},{"img":"https://drive.google.com/thumbnail?id=1dJlnkmhYeLESNcswWtsqALdFnKbQghHz&sz=w400","name":"CAR WHEEL LOCK","rate":"@938/-"},{"img":"https://drive.google.com/thumbnail?id=1g8xtu1U7zFJoH2fnfsWGLVjO1g1jW8lR&sz=w400","name":"Wind Sheild removal tool set ","rate":"@315/-"},{"img":"https://drive.google.com/thumbnail?id=1bLM0OL6VWIWZERHTkZO_EHIPkHKaBbXq&sz=w400","name":"Steering Wheel Puller Set ","rate":"@600/-"},{"img":"https://drive.google.com/thumbnail?id=1TauKd-OkLB7f4ppI8Jlsl5ekGdVSlEOa&sz=w400","name":"27pcs Universal Press and Pull sleeves","rate":"@7200/-"},{"img":"https://drive.google.com/thumbnail?id=1UuHc4k5__dQ7CXxUx3GQt3XpYn7BSSkJ&sz=w400","name":"24pcs Diesel Flow testing kit ","rate":"@2175/-"},{"img":"https://drive.google.com/thumbnail?id=1VIchy-nVtScTSKLjJrhwF1HHgxTvKTzO&sz=w400","name":"Radiator Pressure tester kit","rate":"@3150/-"},{"img":"https://drive.google.com/thumbnail?id=1sv_8_GZGhBwBe2TgthrxmFppaxmznHEM&sz=w400","name":"3Ton Air Bag Jack \n5Ton Air Bag Jack ","rate":"@6300/-\n@9450/-"},{"img":"https://drive.google.com/thumbnail?id=1cJ3dVwlgCatpqd839dXlIi5r3PwOZ69n&sz=w400","name":"Universal Bearing Disassembly Inner Hole Puller Kit With 3 Jaws Puller ","rate":"@2325/-"},{"img":"https://drive.google.com/thumbnail?id=19BovkpP1sYIdQn5lbi0mSR8PJ75i9C4Y&sz=w400","name":"Car Tire Repair\ngun with Rubber Plugs Kit ","rate":"@1350/-"},{"img":"https://drive.google.com/thumbnail?id=10z1XYKp3_ZKkkm5XnTjCvcgD6obhPnDV&sz=w400","name":"Rechargable Led Working Lamp for Garage and Work Shop","rate":"@525/-"},{"img":"https://drive.google.com/thumbnail?id=1LfKZEaMTVVEZ48tkUyKjisRzfK2nIuZV&sz=w400","name":"Offset extention wrench","rate":"@₹750/-"},{"img":"https://drive.google.com/thumbnail?id=1wlp-o5t3oUIDe86yhSaR5WVgBPF1QgE1&sz=w400","name":"Universal Clutch Alignment tool ","rate":"@188/-"},{"img":"https://drive.google.com/thumbnail?id=1tTD3-37npmR0CxzOw_RnPnIn-db1m5_6&sz=w400","name":"40inch Hungma Creeper","rate":" @1725/-"},{"img":"https://drive.google.com/thumbnail?id=1Jd0mixmuntxtzJ02r4ohJcwPwqYX2pDt&sz=w400","name":"Hole Drill Punch Guide ","rate":" @3600/-"},{"img":"https://drive.google.com/thumbnail?id=1jFLoeaMlOhC-TjFLoNq6l9M6zJIw4qIx&sz=w400","name":"15pcs Belt Tensioner Pulley Removal Tool Kit ","rate":"@2550/-"},{"img":"https://drive.google.com/thumbnail?id=144wC7Jd4PWDg5nigyUW7lOi74WRnhuF3&sz=w400","name":"Heavy Duty Car Ramp ","rate":"@5700/-"},{"img":"https://drive.google.com/thumbnail?id=1TMUZ2M8R3flX4sen9yQgXsGhODRDzksp&sz=w400","name":"25pcs Multi spline screw extractor set ","rate":"@2250/-"},{"img":"https://drive.google.com/thumbnail?id=1N-AuSIzu8xbQblAuZZ01BH42v3R1s-sC&sz=w400","name":"11inch long  pliers","rate":"🍁Straight long  nose @263/-\n🍁 Bend long nose @263/-\n🍁Ring long nose @263/-"},{"img":"https://drive.google.com/thumbnail?id=1S4qarfnFQLi81t-T7UWrkO7DJFPu-nyo&sz=w400","name":"Dual Mouth Circlip Plier ","rate":"@180/-"},{"img":"https://drive.google.com/thumbnail?id=14JL_ePZUfQx3L1hK_zA_Zun9s-wrDjDl&sz=w400","name":"Digital Thermometer ","rate":"@263/-"},{"img":"https://drive.google.com/thumbnail?id=1NN5jQ6VZ7vgmPCeOipqBm26AAB83p6Ei&sz=w400","name":"16mm Spark plug socket with flexible head ","rate":"@338/-"},{"img":"https://drive.google.com/thumbnail?id=1toaW-SS6anXRACHEE0Bx6ADNK67eubQ_&sz=w400","name":"Car Wind Sheild Remover ","rate":"@615/-"}];
-// ─────────────────────────────────────────────
-// STATE
-// ─────────────────────────────────────────────
-let allProducts = [];
-let query = '';
+// Hero
+function initHero(){
+  const d=document.getElementById('hd2');
+  d.innerHTML=Array.from({length:NS},(_,i)=>`<button class="hd ${i===0?'on':''}" onclick="gh(${i})"></button>`).join('');
+  setInterval(()=>hn(1),5000);
+}
+function hn(dir){hi=(hi+dir+NS)%NS;gh(hi)}
+function gh(i){hi=i;document.getElementById('hsl').style.transform=`translateX(-${i*100}%)`;document.querySelectorAll('.hd').forEach((d,j)=>d.classList.toggle('on',j===i))}
 
-// ─────────────────────────────────────────────
-// DOM REFS
-// ─────────────────────────────────────────────
-const grid        = document.getElementById('grid');
-const loader      = document.getElementById('loader');
-const empty       = document.getElementById('empty');
-const countBadge  = document.getElementById('countBadge');
-const statCount   = document.getElementById('stat-products');
-const searchInput = document.getElementById('searchInput');
-const hamBtn      = document.getElementById('hamBtn');
-const searchWrap  = document.getElementById('searchWrap');
+// Page switching
+function showHome(){document.getElementById('hp').style.display='block';document.getElementById('cp').classList.remove('show');window.scrollTo({top:0,behavior:'smooth'})}
+function showCatalog(){document.getElementById('hp').style.display='none';document.getElementById('cp').classList.add('show');cat='All';qry='';document.getElementById('bcat').textContent='All Products';const ci=document.getElementById('csi2');if(ci)ci.value='';rc();window.scrollTo({top:0,behavior:'smooth'})}
+function fc(k){showCatalog();cat=k;document.getElementById('bcat').textContent=k;rc()}
+function sg(id){showHome();setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'})},50)}
+function tmn(){document.getElementById('mn').classList.toggle('open')}
+function dhs(){const q=document.getElementById('hs').value.trim();if(!q)return;qry=q;showCatalog();document.getElementById('csi2').value=q;rc()}
+function ds(q){qry=q.trim();rc()}
 
-// ─────────────────────────────────────────────
-// MOBILE SEARCH TOGGLE
-// ─────────────────────────────────────────────
-hamBtn.addEventListener('click', () => {
-  searchWrap.classList.toggle('open');
-  if (searchWrap.classList.contains('open')) {
-    setTimeout(() => searchInput.focus(), 50);
-  }
-});
-
-// ─────────────────────────────────────────────
-// WA MESSAGE BUILDER
-// ─────────────────────────────────────────────
-function waLink(name, rate) {
-  const msg = `Hello PROCUT! I'm interested in:\n\n*${name}*\nPrice: ₹${Number(rate).toLocaleString('en-IN')}\n\nPlease share more details.`;
-  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+// WA link
+function wa(name,rate){
+  const msg=`Hello PROCUT! I'm interested in:\n\n*${name}*\nPrice: ${rate}\n\nKindly share availability and details.`;
+  return `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`
 }
 
-// ─────────────────────────────────────────────
-// RENDER
-// ─────────────────────────────────────────────
-function renderProducts(list) {
-  // Remove all cards (keep loader & empty nodes)
-  Array.from(grid.querySelectorAll('.card')).forEach(c => c.remove());
-  empty.classList.remove('show');
-
-  if (!list.length) {
-    empty.classList.add('show');
-    countBadge.textContent = '0 Products';
-    return;
-  }
-
-  countBadge.textContent = `${list.length} Product${list.length !== 1 ? 's' : ''}`;
-
-  const frag = document.createDocumentFragment();
-  list.forEach((p, i) => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.style.animationDelay = `${Math.min(i * 25, 300)}ms`;
-
-    const imgHTML = p.img
-      ? `<img src="${encodeURI(p.img)}" alt="${escHtml(p.name)}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=no-img>NO IMAGE</div>'">`
-      : `<div class="no-img">NO IMAGE</div>`;
-
-    card.innerHTML = `
-      <div class="card-img-wrap">${imgHTML}</div>
-      <div class="card-body">
-        <div class="card-name">${escHtml(p.name)}</div>
-        <div class="card-price">₹${Number(p.rate).toLocaleString('en-IN')}<span>INR</span></div>
-        <a class="wa-btn" href="${waLink(p.name, p.rate)}" target="_blank" rel="noopener">
-          <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.528 5.855L.057 23.927a.5.5 0 0 0 .618.618l6.168-1.47A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 0 1-5.002-1.371l-.359-.214-3.722.886.899-3.619-.235-.373A9.77 9.77 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-          Inquire on WhatsApp
-        </a>
-      </div>`;
-    frag.appendChild(card);
-  });
-  grid.appendChild(frag);
+// Card
+function card(p,delay){
+  const img=p.img?`<img src="${p.img}" alt="${esc(p.name)}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=pni>📦</div>'">`:`<div class="pni">📦</div>`;
+  const rate=p.rate.replace(/@/g,'').replace(/\\-/g,'').trim();
+  const disp=rate?`₹${rate}`:p.rate;
+  const waSVG=`<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.528 5.855L.057 23.927a.5.5 0 0 0 .618.618l6.168-1.47A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 0 1-5.002-1.371l-.359-.214-3.722.886.899-3.619-.235-.373A9.77 9.77 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>`;
+  return `<div class="pc" style="animation-delay:${delay}ms"><div class="pci">${img}</div><div class="pcb"><div class="pn">${esc(p.name)}</div><div class="pr">${esc(disp)}<small>incl. tax</small></div><a class="pw" href="${wa(p.name,disp)}" target="_blank" rel="noopener">${waSVG} Inquire on WhatsApp</a></div></div>`
 }
 
-// ─────────────────────────────────────────────
-// FILTER
-// ─────────────────────────────────────────────
-function filter() {
-  if (!query) { renderProducts(allProducts); return; }
-  const q = query.toLowerCase();
-  renderProducts(allProducts.filter(p => p.name.toLowerCase().includes(q)));
+function renderGrid(id,list){
+  document.getElementById(id).innerHTML=list.length?list.map((p,i)=>card(p,Math.min(i*25,350))).join(''):`<div class="emp">No products found</div>`
 }
 
-searchInput.addEventListener('input', e => { query = e.target.value.trim(); filter(); });
+function rc(){
+  const q=qry.toLowerCase();
+  let list=all;
+  if(cat!=='All')list=list.filter(p=>p.name.toLowerCase().includes(cat.toLowerCase()));
+  if(q)list=list.filter(p=>p.name.toLowerCase().includes(q));
+  document.getElementById('cco').textContent=`${list.length} product${list.length!==1?'s':''}`;
+  const ce=document.getElementById('cem'),cg=document.getElementById('cg2');
+  if(!list.length){cg.innerHTML='';ce.style.display='block'}
+  else{ce.style.display='none';renderGrid('cg2',list)}
 
-// ─────────────────────────────────────────────
-// DATA LOAD
-// ─────────────────────────────────────────────
-function parseSheetData(rows) {
-  return rows.map(row => ({
-    img: (row.img || '').toString().trim(),
-    name: (row.name || '').toString().trim().replace(/\n/g,' '),
-    rate: parseFloat((row.rate||'').toString().replace(/[^0-9.]/g,'')) || 0
-  })).filter(p => p.name);
+  // sidebar quick filters
+  const kws=['Jack','Socket','Ratchet','Hydraulic','Grease','Cordless','Torque','Brake','Tire','Plier','Bearing','OBD'];
+  document.getElementById('cff').innerHTML=kws.map(k=>`<label class="fo"><input type="radio" name="ccat" value="${k}" ${k===cat?'checked':''} onchange="fc('${k}')"/> ${k}</label>`).join('')
+  +`<label class="fo" style="margin-top:8px"><input type="radio" name="ccat" value="All" ${cat==='All' && !qry?'checked':''} onchange="cat='All';qry='';rc()"/> All Products</label>`
 }
 
-async function loadData() {
-  if (SHEET_URL) {
-    try {
-      const res = await fetch(SHEET_URL);
-      const json = await res.json();
-      // Support both {data:[...]} and direct array
-      const rows = Array.isArray(json) ? json : (json.data || json.products || []);
-      allProducts = parseSheetData(rows);
-    } catch(err) {
-      console.warn('Sheet fetch failed, using demo data:', err);
-      allProducts = DEMO_DATA;
+function renderHome(){
+  renderGrid('tg',all.slice(0,10));
+  const garage=all.filter(p=>/jack|trolley|compressor|creeper|stool|ramp|crane|creep/i.test(p.name)).slice(0,10);
+  renderGrid('gg',garage.length?garage:all.slice(10,20))
+}
+
+// Load from sheet (fallback to hardcoded)
+async function loadData(){
+  try{
+    const r=await fetch(SHEET_URL);
+    const j=await r.json();
+    const rows=Array.isArray(j)?j:(j.data||j.products||[]);
+    if(rows.length>0){
+      all=rows.map(r=>({
+        img:(r.img||r['Product Image']||r[0]||'').toString().trim(),
+        name:(r.name||r['Product Name']||r[1]||'').toString().replace(/\n/g,' ').trim(),
+        rate:(r.rate||r['Rate']||r[2]||'').toString().replace(/\n.*$/s,'').trim()
+      })).filter(p=>p.name);
     }
-  } else {
-    allProducts = DEMO_DATA;
-  }
-
-  loader.style.display = 'none';
-  statCount.textContent = allProducts.length;
-  filter();
+  }catch(e){/* use hardcoded */}
+  renderHome()
 }
 
-// ─────────────────────────────────────────────
-// UTILS
-// ─────────────────────────────────────────────
-function escHtml(str) {
-  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
 
-// ─────────────────────────────────────────────
-// BOOT
-// ─────────────────────────────────────────────
+window.addEventListener('scroll',()=>document.getElementById('st').classList.toggle('show',scrollY>400));
+
+initHero();
 loadData();
 </script>
 </body>

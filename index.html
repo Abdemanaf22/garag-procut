@@ -591,7 +591,7 @@ function skeletons(n){
 function renderCatalog(){
   const q=(document.getElementById('catalogSearch')||{value:''}).value.toLowerCase().trim();
   let filtered=allProducts;
-  if(activeCat!=='All') filtered=filtered.filter(p=>p.cat===activeCat);
+  if(activeCat!=='All') filtered=filtered.filter(p=>(p.cat||'').trim()===activeCat.trim());
   if(q) filtered=filtered.filter(p=>p.name.toLowerCase().includes(q));
   
   const el=document.getElementById('catalogGrid');
@@ -608,17 +608,16 @@ function renderCatalog(){
 }
 
 function buildSidebar(){
-  const cats=['All',...CATS.map(c=>c.name)];
   const counts={};
-  allProducts.forEach(p=>{counts[p.cat]=(counts[p.cat]||0)+1});
-  
+  allProducts.forEach(p=>{if(p.cat) counts[p.cat]=(counts[p.cat]||0)+1});
+  const realCats=Object.keys(counts).sort();
+  const cats=['All',...realCats];
   const el=document.getElementById('sidebarFilters');
   if(!el) return;
   el.innerHTML=cats.map(c=>{
     const cnt=c==='All'?allProducts.length:(counts[c]||0);
-    return `<li class="filter-item${activeCat===c?' active':''}" onclick="setCat('${c.replace(/'/g,"\\'")}')">
-      <span>${c}</span><span class="count">${cnt}</span>
-    </li>`;
+    const safe=c.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+    return `<li class="filter-item${activeCat===c?' active':''}" onclick="setCat('${safe}')"><span>${c}</span><span class="count">${cnt}</span></li>`;
   }).join('');
 }
 
@@ -725,7 +724,19 @@ async function loadData(){
   const hc=document.getElementById('heroCount');
   if(hc&&allProducts.length) hc.textContent=allProducts.length+'+';
   
-  buildCatGrids();
+  // Rebuild menus with real category names from sheet
+  const counts={};
+  allProducts.forEach(p=>{if(p.cat) counts[p.cat]=(counts[p.cat]||0)+1});
+  const realCats=Object.keys(counts).sort();
+  const catIcons={'Hand Tools':'🔧','Goldsmith Tools':'💎','Carpentry Tools':'🪚','Garden Tools':'🌿','Cordless Power Tools':'🔋','Electric Corded (AC) Power Tools':'⚡','Electronics':'🔌','Gasoline Gardening Tools':'⛽','Refrigeration Tools':'❄️','Pneumatic Tools':'💨','Abrasive & Cutting Tools':'⚙️','Power Tools & Accessories':'🛠️','Hydraulic Tools':'🔩','DIY Tools':'🪛','Precision Tools':'📏','Brushes':'🖌️','Garage Tools':'🚗'};
+  const mm=document.getElementById('megaMenuCats');
+  if(mm) mm.innerHTML=realCats.map(c=>`<a class="mega-cat" href="#" onclick="filterAndGo('${c.replace(/'/g,"\\'")}');return false">${catIcons[c]||'🔧'} ${c}</a>`).join('');
+  const hg=document.getElementById('homeCatGrid');
+  if(hg) hg.innerHTML=realCats.map(c=>`<a class="cat-tile" href="#" onclick="filterAndGo('${c.replace(/'/g,"\\'")}');return false"><div class="cat-icon-wrap">${catIcons[c]||'🔧'}</div><span>${c}</span></a>`).join('');
+  const mg=document.getElementById('mobCatGrid');
+  if(mg) mg.innerHTML=realCats.map(c=>`<a class="mob-cat" href="#" onclick="filterAndGo('${c.replace(/'/g,"\\'")}');return false">${catIcons[c]||'🔧'} ${c}</a>`).join('');
+  const fc=document.getElementById('footerCatList');
+  if(fc) fc.innerHTML=realCats.slice(0,8).map(c=>`<li><a href="#" onclick="filterAndGo('${c.replace(/'/g,"\\'")}');return false">${c}</a></li>`).join('');
   renderTrending();
   buildSidebar();
   renderCatalog();

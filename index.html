@@ -556,7 +556,7 @@ footer{background:#1A1A2E;border-top:1px solid #2d2d4e;padding:48px 20px 24px}
 
 <script>
 const WA = '919323120324';
-const SHEET_URL = 'https://script.google.com/macros/s/AKfycbys3-Ejfwp3YpUS1kBfCstHVWuJorr_e7uExwjEypQLQkjGOAaYoHQDhihqMrRXlXs_wA/exec';
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyau_04otHCniJE5Ho-D4OdBLJ1WGn8T6n0I3V9s6HRdv_Y3A3T-HeibAroYxY29SARXQ/exec';
 
 const CATS = [
   {name:'Hand Tools',icon:'🔧'},
@@ -768,6 +768,14 @@ async function loadData(){
       code:(r.code||'').toString().trim()
     })).filter(p=>p.name&&p.name.toLowerCase()!=='cellimage');
     console.log('Loaded',allProducts.length,'products');
+    // TEMP DEBUG - show first product raw in result count
+    if(allProducts.length){
+      const p=allProducts[0];
+      const el=document.getElementById('resultCount');
+      if(el) el.title='First product raw: '+JSON.stringify(p);
+      console.log('FIRST PRODUCT RAW:', JSON.stringify(p));
+      console.log('ALL KEYS:', Object.keys(p).join(', '));
+    }
   }catch(e){
     console.error('Sheet load failed:',e);
     // Show error in catalog

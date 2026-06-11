@@ -768,11 +768,6 @@ async function loadData(){
       code:(r.code||'').toString().trim()
     })).filter(p=>p.name&&p.name.toLowerCase()!=='cellimage');
     console.log('Loaded',allProducts.length,'products');
-    // Log first product with a code to check
-    const withCode=allProducts.find(p=>p.code);
-    const noCode=allProducts.find(p=>!p.code);
-    console.log('WITH code:', JSON.stringify(withCode));
-    console.log('NO code sample:', JSON.stringify(noCode));
   }catch(e){
     console.error('Sheet load failed:',e);
     // Show error in catalog

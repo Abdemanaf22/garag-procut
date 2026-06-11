@@ -672,13 +672,16 @@ function buildSidebar(){
 function setCat(c){
   activeCat=c;
   buildSidebar();
-  // also reset search
   const cs=document.getElementById('catalogSearch');
   if(cs) cs.value='';
   renderCatalog();
-  // close mobile menu
   document.getElementById('mobileMenu').classList.remove('open');
   document.getElementById('hambBtn').classList.remove('open');
+  // Scroll to grid on mobile
+  setTimeout(()=>{
+    const grid=document.getElementById('catalogGrid');
+    if(grid) grid.scrollIntoView({behavior:'smooth',block:'start'});
+  },50);
 }
 
 function buildCatGrids(){
@@ -710,7 +713,10 @@ function filterAndGo(cat){
     if(cs) cs.value='';
     buildSidebar();
     renderCatalog();
-  },50);
+    // Auto-scroll to product grid
+    const grid=document.getElementById('catalogGrid');
+    if(grid) grid.scrollIntoView({behavior:'smooth',block:'start'});
+  },80);
 }
 
 function renderTrending(){
@@ -845,7 +851,7 @@ function renderCart(){
   waBtn.style.display='flex';
 }
 function sendCartWA(){
-  const lines=cart.map((i,n)=>`${n+1}. *${i.name}*${i.code?' ('+i.code+')':''}`).join('\n');
+  const lines=cart.map((i,n)=>`${n+1}. *${i.name}*${i.code?'\nItem Code: '+i.code:''}`).join('\n\n');
   const msg=encodeURIComponent(`Hello, I would like to enquire about the following products:\n\n${lines}\n\nPlease share availability and pricing.`);
   window.open(`https://wa.me/${WA}?text=${msg}`,'_blank');
 }

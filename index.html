@@ -677,11 +677,10 @@ function setCat(c){
   renderCatalog();
   document.getElementById('mobileMenu').classList.remove('open');
   document.getElementById('hambBtn').classList.remove('open');
-  // Scroll to grid on mobile
   setTimeout(()=>{
     const grid=document.getElementById('catalogGrid');
-    if(grid) grid.scrollIntoView({behavior:'smooth',block:'start'});
-  },50);
+    if(grid){const y=grid.getBoundingClientRect().top+window.scrollY-80;window.scrollTo({top:y,behavior:'smooth'});}
+  },100);
 }
 
 function buildCatGrids(){
@@ -715,8 +714,8 @@ function filterAndGo(cat){
     renderCatalog();
     // Auto-scroll to product grid
     const grid=document.getElementById('catalogGrid');
-    if(grid) grid.scrollIntoView({behavior:'smooth',block:'start'});
-  },80);
+    if(grid){const y=grid.getBoundingClientRect().top+window.scrollY-80;window.scrollTo({top:y,behavior:'smooth'});}
+  },150);
 }
 
 function renderTrending(){
@@ -769,6 +768,7 @@ async function loadData(){
       code:(r.code||'').toString().trim()
     })).filter(p=>p.name&&p.name.toLowerCase()!=='cellimage');
     console.log('Loaded',allProducts.length,'products');
+    if(allProducts.length) console.log('Sample product:', JSON.stringify(allProducts[0]));
   }catch(e){
     console.error('Sheet load failed:',e);
     // Show error in catalog

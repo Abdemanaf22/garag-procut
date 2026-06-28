@@ -52,12 +52,35 @@
     --text:#F1F5F9;--muted:#94A3B8;--border:#334155;
     --green:#22C55E;--shadow:0 2px 12px rgba(0,0,0,.3);
     --shadow-hover:0 12px 36px rgba(0,0,0,.5);
-    --bg:#0F172A;--surface:#1E293B;--surface2:#1E293B;
+    --bg:#0F172A;--surface:#1E293B;--surface2:#182235;
     --header-bg:#1E293B;--footer-bg:#0A0F1A;
     --input-bg:#273449;--input-border:#334155;
     --sidebar-bg:#1E293B;--badge-bg:#1E3A5F;--badge-text:#93C5FD;
     --topbar-bg:linear-gradient(90deg,#1E3A8A,#1D4ED8);
   }
+  /* Fix elements with hardcoded dark colours */
+  .hero-title,.hero-sub,.section-title,.cat-tile-name,
+  .card-name,.filter-item,.sidebar-title,.result-count,
+  .about-text,.b2b-title,.b2b-desc,.contact-label,
+  .contact-val,.nav-link,.mob-cat,.trust-item{color:var(--text) !important}
+
+  .card-code{color:var(--badge-text) !important;background:var(--badge-bg) !important}
+  .add-cart-btn{background:var(--badge-bg) !important;color:var(--blue) !important;border-color:var(--border) !important}
+  .cat-tile{background:var(--surface) !important;border-color:var(--border) !important}
+  .cat-tile-count{color:var(--muted) !important}
+  .filter-item.active{background:var(--blue) !important;color:#fff !important}
+  .filter-item .count{color:var(--muted)}
+  .filter-item.active .count{color:rgba(255,255,255,.7)}
+  .catalog-toolbar{background:var(--surface2) !important;border-color:var(--border) !important}
+  .skeleton{background:var(--surface) !important}
+  .skel-img,.skel-line{background:var(--surface2) !important}
+  .hero-badge{color:var(--text) !important}
+  .stat-num{color:var(--blue) !important}
+  .stat-label{color:var(--muted) !important}
+  .wa-btn{background:#15803D !important}
+  .card:hover{border-color:#4B5563 !important}
+  input,select,textarea{color:var(--text) !important;background:var(--input-bg) !important}
+  ::placeholder{color:var(--muted) !important}
 }
 *{-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
@@ -730,7 +753,7 @@ function buildWALink(name,code){
   return `https://wa.me/${WA}?text=${msg}`;
 }
 
-function cardHTML(p,idx){
+function cardHTML(p){
   const img=p.img?`<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.parentNode.querySelector('.no-img').style.display='flex'">`:'';
   const noImgStyle=p.img?'display:none':'display:flex';
   const cat=p.cat||'';
@@ -759,11 +782,12 @@ function skeletons(n){
   return Array(n).fill(`<div class="skeleton"><div class="skel-img"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line short"></div></div></div>`).join('');
 }
 
-// Pre-cache card HTML strings keyed by product index for fast re-render
+// Cache card HTML by product identity (name+code), not loop index
 let _cardCache=new Map();
-function getCardHTML(p,idx){
-  if(!_cardCache.has(idx)) _cardCache.set(idx,cardHTML(p,idx));
-  return _cardCache.get(idx);
+function getCardHTML(p){
+  const key=(p.name||'')+'|'+(p.code||'');
+  if(!_cardCache.has(key)) _cardCache.set(key,cardHTML(p));
+  return _cardCache.get(key);
 }
 
 function renderCatalog(){
@@ -788,7 +812,7 @@ function renderCatalog(){
   document.getElementById('resultCount').textContent=`${filtered.length} product${filtered.length!==1?'s':''}`;
 
   // Build HTML string first (fast), then set innerHTML once in rAF
-  const html=filtered.map((p,i)=>getCardHTML(p,i)).join('');
+  const html=filtered.map(p=>getCardHTML(p)).join('');
   requestAnimationFrame(()=>{
     el.innerHTML=html;
     if(searching){
@@ -874,7 +898,7 @@ function renderTrending(){
   if(!el) return;
   const sample=allProducts.filter(p=>p.img).slice(0,10);
   if(!sample.length){el.innerHTML=skeletons(5);return;}
-  el.innerHTML=sample.map((p,i)=>cardHTML(p,i)).join('');
+  el.innerHTML=sample.map(p=>cardHTML(p)).join('');
 }
 
 function globalSearch(q){

@@ -105,7 +105,7 @@ header{position:sticky;top:0;z-index:1000;background:var(--header-bg);border-bot
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
 .logo svg{height:38px;width:auto}
 .logo-text{display:flex;flex-direction:column;line-height:1}
-.logo-text span:first-child{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:#111827;letter-spacing:.08em}
+.logo-text span:first-child{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:var(--text);letter-spacing:.08em}
 .logo-text span:last-child{font-size:8px;color:var(--yellow);letter-spacing:.15em;font-weight:600}
 nav{display:flex;align-items:center;gap:4px;margin-left:16px}
 .nav-item{position:relative}
@@ -790,12 +790,60 @@ function getCardHTML(p){
   return _cardCache.get(key);
 }
 
+// Levenshtein edit distance (fast, capped)
+function editDist(a,b){
+  if(a===b) return 0;
+  if(a.length>b.length){const t=a;a=b;b=t;}
+  let row=Array.from({length:a.length+1},(_,i)=>i);
+  for(let j=1;j<=b.length;j++){
+    let prev=j;
+    for(let i=1;i<=a.length;i++){
+      const val=b[j-1]===a[i-1]?row[i-1]:Math.min(row[i-1],row[i],prev)+1;
+      row[i-1]=prev;prev=val;
+    }
+    row[a.length]=prev;
+  }
+  return row[a.length];
+}
+
 function renderCatalog(){
   const q=(document.getElementById('catalogSearch')||{value:''}).value.toLowerCase().trim();
   let filtered=allProducts;
   const searching=!!q;
   if(activeCat!=='All'&&!searching) filtered=filtered.filter(p=>(p.cat||'').trim()===activeCat.trim());
-  if(q) filtered=filtered.filter(p=>p.name.toLowerCase().includes(q)||(p.code||'').toLowerCase().includes(q));
+  if(q){
+    // Tokenise query into words
+    const tokens=q.split(/\s+/).filter(Boolean);
+    // Score each product: exact substring > all tokens match > fuzzy
+    const scored=[];
+    for(let i=0;i<filtered.length;i++){
+      const p=filtered[i];
+      const name=(p.name||'').toLowerCase();
+      const code=(p.code||'').toLowerCase();
+      const haystack=name+' '+code;
+      // Exact phrase match
+      if(haystack.includes(q)){scored.push({p,s:100});continue;}
+      // All tokens present
+      if(tokens.every(t=>haystack.includes(t))){scored.push({p,s:80});continue;}
+      // Most tokens present (tolerates one missing word)
+      const matchCount=tokens.filter(t=>haystack.includes(t)).length;
+      if(matchCount>=tokens.length-1&&matchCount>0){scored.push({p,s:60});continue;}
+      // Fuzzy: each token checked with edit-distance ≤ 1
+      let fuzzyHits=0;
+      for(const t of tokens){
+        if(t.length<3){if(haystack.includes(t))fuzzyHits++;continue;}
+        // sliding window over haystack words
+        const words=haystack.split(/[\s\-\/]+/);
+        for(const w of words){
+          if(Math.abs(w.length-t.length)>2) continue;
+          if(editDist(t,w.substring(0,t.length+2))<=1){fuzzyHits++;break;}
+        }
+      }
+      if(fuzzyHits>=Math.ceil(tokens.length*.6)) scored.push({p,s:fuzzyHits*10});
+    }
+    scored.sort((a,b)=>b.s-a.s);
+    filtered=scored.map(x=>x.p);
+  }
 
   const sidebar=document.querySelector('.sidebar');
   if(sidebar) sidebar.style.display=searching?'none':'';

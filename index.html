@@ -550,7 +550,7 @@ footer{background:linear-gradient(135deg,#2563EB,#1E3A8A);border-top:1px solid #
         </div>
         <div>
           <div class="catalog-toolbar">
-            <input type="text" class="catalog-search" id="catalogSearch" placeholder="Search products..." oninput="renderCatalog()">
+            <input type="text" class="catalog-search" id="catalogSearch" placeholder="Search products or item code..." oninput="debouncedSearch()">
             <span class="result-count" id="resultCount">Loading...</span>
           </div>
           <div id="catalogGrid" class="product-grid"></div>
@@ -750,8 +750,13 @@ function skeletons(n){
 function renderCatalog(){
   const q=(document.getElementById('catalogSearch')||{value:''}).value.toLowerCase().trim();
   let filtered=allProducts;
-  if(activeCat!=='All') filtered=filtered.filter(p=>(p.cat||'').trim()===activeCat.trim());
-  if(q) filtered=filtered.filter(p=>p.name.toLowerCase().includes(q));
+  const searching=!!q;
+  if(activeCat!=='All'&&!searching) filtered=filtered.filter(p=>(p.cat||'').trim()===activeCat.trim());
+  if(q) filtered=filtered.filter(p=>p.name.toLowerCase().includes(q)||(p.code||'').toLowerCase().includes(q));
+  
+  // Show/hide sidebar based on search state
+  const sidebar=document.querySelector('.sidebar');
+  if(sidebar) sidebar.style.display=searching?'none':'';
   
   const el=document.getElementById('catalogGrid');
   if(!el) return;
@@ -764,6 +769,18 @@ function renderCatalog(){
   
   el.innerHTML=filtered.map((p,i)=>cardHTML(p,i)).join('');
   document.getElementById('resultCount').textContent=`${filtered.length} product${filtered.length!==1?'s':''}`;
+
+  // Auto-scroll to top of results when searching
+  if(searching){
+    const toolbar=document.querySelector('.catalog-toolbar');
+    if(toolbar){const y=toolbar.getBoundingClientRect().top+window.scrollY-80;window.scrollTo({top:y,behavior:'smooth'});}
+  }
+}
+
+let _searchTimer=null;
+function debouncedSearch(){
+  clearTimeout(_searchTimer);
+  _searchTimer=setTimeout(renderCatalog,200);
 }
 
 function buildSidebar(){
@@ -785,6 +802,8 @@ function setCat(c){
   buildSidebar();
   const cs=document.getElementById('catalogSearch');
   if(cs) cs.value='';
+  const sidebar=document.querySelector('.sidebar');
+  if(sidebar) sidebar.style.display='';
   renderCatalog();
   document.getElementById('mobileMenu').classList.remove('open');
   document.getElementById('hambBtn').classList.remove('open');

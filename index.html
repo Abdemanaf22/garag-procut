@@ -748,6 +748,7 @@ footer{background:linear-gradient(135deg,#2563EB,#1E3A8A);border-top:1px solid #
 <script>
 const WA = '919323120324';
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyau_04otHCniJE5Ho-D4OdBLJ1WGn8T6n0I3V9s6HRdv_Y3A3T-HeibAroYxY29SARXQ/exec';
+const TRENDING_URL = 'https://script.google.com/macros/s/AKfycbztWGA2j4b7UTZIJLJvuWiAaL_lnWo38YV3xBmIbvFOxu0E3mFM0x6Nh3jHSaEYsF1pxg/exec?action=getTrending';
 
 const CATS = [
   {name:'Hand Tools',icon:'🔧'},
@@ -989,10 +990,15 @@ function filterAndGo(cat){
   },150);
 }
 
+let trendingCodes=[];
 function renderTrending(){
   const el=document.getElementById('trendingGrid');
   if(!el) return;
-  const sample=allProducts.filter(p=>p.img).slice(0,10);
+  let sample;
+  if(trendingCodes.length){
+    sample=trendingCodes.map(c=>allProducts.find(p=>p.code===c)).filter(Boolean);
+  }
+  if(!sample||!sample.length) sample=allProducts.filter(p=>p.img).slice(0,10);
   if(!sample.length){el.innerHTML=skeletons(5);return;}
   el.innerHTML=sample.map(p=>cardHTML(p)).join('');
 }
@@ -1073,6 +1079,10 @@ async function loadData(){
       code:(r.code||'').toString().trim()
     })).filter(p=>p.name&&p.name.toLowerCase()!=='cellimage'&&p.img&&p.img.startsWith('http'));
     console.log('Loaded',allProducts.length,'products');
+    try{
+      const tres=await fetch(TRENDING_URL);
+      trendingCodes=JSON.parse(await tres.text())||[];
+    }catch(e){ trendingCodes=[]; }
   }catch(e){
     console.error('Sheet load failed:',e);
     // Show error in catalog

@@ -640,6 +640,19 @@ footer{background:linear-gradient(135deg,#2563EB,#1E3A8A);border-top:1px solid #
   </section>
 </div>
 
+<!-- ENQUIRY PAGE -->
+<div class="page" id="page-enquiry">
+  <section>
+    <div class="section-inner">
+      <div style="margin-bottom:28px">
+        <div class="section-eyebrow">Pro-Cut</div>
+        <h1 class="section-title">Enquiry <em>Images</em></h1>
+      </div>
+      <div id="enquiryGrid" class="product-grid"></div>
+    </div>
+  </section>
+</div>
+
 <!-- ABOUT PAGE -->
 <div class="page" id="page-about">
   <section>
@@ -792,9 +805,16 @@ function cleanName(n){
   return s;
 }
 
+function randStr5(){const c='abcdefghijklmnopqrstuvwxyz0123456789';let s='';for(let i=0;i<5;i++)s+=c[Math.floor(Math.random()*c.length)];return s;}
+function genEnquiryId(){return Date.now()+'-'+randStr5();}
+function buildEnquiryURL(codes){
+  return `${window.location.origin}${window.location.pathname}?enquiry=1&id=${genEnquiryId()}&p=${codes.join(',')}`;
+}
+
 function buildWALink(name,code){
   const codeStr=code?`\nItem Code: *${code}*`:'';
-  const msg=encodeURIComponent(`Hello, I would like to enquire about:\n\nProduct: *${name}*${codeStr}\n\nPlease share availability and pricing.`);
+  const imgLink=code?`\n\nView Images:\n${buildEnquiryURL([code])}`:'';
+  const msg=encodeURIComponent(`Hello, I would like to enquire about:\n\nProduct: *${name}*${codeStr}${imgLink}\n\nPlease share availability and pricing.`);
   return `https://wa.me/${WA}?text=${msg}`;
 }
 
@@ -1167,7 +1187,9 @@ function renderCart(){
 }
 function sendCartWA(){
   const lines=cart.map((i,n)=>`${n+1}. *${i.name}*${i.code?'\nItem Code: '+i.code:''}`).join('\n\n');
-  const msg=encodeURIComponent(`Hello, I would like to enquire about the following products:\n\n${lines}\n\nPlease share availability and pricing.`);
+  const codes=cart.map(i=>i.code).filter(Boolean);
+  const imgLink=codes.length?`\n\nView Images:\n${buildEnquiryURL(codes)}`:'';
+  const msg=encodeURIComponent(`Hello, I would like to enquire about the following products:\n\n${lines}${imgLink}\n\nPlease share availability and pricing.`);
   window.open(`https://wa.me/${WA}?text=${msg}`,'_blank');
 }
 
@@ -1215,7 +1237,37 @@ window.addEventListener('scroll',()=>{
   btn.classList.toggle('show',window.scrollY>400);
 });
 
-loadData();
+// ENQUIRY VIEW
+function isEnquiryMode(){
+  return new URLSearchParams(window.location.search).get('enquiry')==='1';
+}
+function renderEnquiryPage(){
+  const params=new URLSearchParams(window.location.search);
+  const codes=(params.get('p')||'').split(',').map(s=>s.trim()).filter(Boolean);
+  const found=allProducts.filter(p=>codes.includes(p.code));
+  const el=document.getElementById('enquiryGrid');
+  if(!el) return;
+  if(!found.length){
+    el.innerHTML='<div class="no-results" style="grid-column:1/-1">No products found.</div>';
+    return;
+  }
+  el.innerHTML=found.map(p=>`<div class="card">
+    <div class="card-img">
+      ${p.img?`<img src="${p.img}" alt="${p.name}" loading="lazy">`:'<div class="no-img" style="display:flex">🔧</div>'}
+      ${p.cat?`<span class="card-cat-badge">${p.cat}</span>`:''}
+    </div>
+    <div class="card-body">
+      <div class="card-name" title="${p.name}">${p.name}</div>
+      ${p.code?`<div class="card-code">Item Code: ${p.code}</div>`:''}
+    </div>
+  </div>`).join('');
+}
+if(isEnquiryMode()){
+  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+  document.getElementById('page-enquiry').classList.add('active');
+}
+
+loadData().then(()=>{ if(isEnquiryMode()) renderEnquiryPage(); });
 buildCatGrids();
 setTimeout(()=>{ if(!loaded) finishLoadProgress(); },15000); // safety: never block site >15s
 </script>

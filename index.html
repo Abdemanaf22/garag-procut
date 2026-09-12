@@ -636,6 +636,8 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 // ─── STATE ─────────────────────────────────────────────
 let allParents = [], activeCat = 'All', loaded = false, trendingCodes = [];
 let cart = [];
+const CATALOG_PAGE_SIZE = 40;
+let catalogFiltered = [], catalogRendered = 0, catalogScrollObserver = null;
 const CAT_ICONS = {'Hand Tools':'🔧','Goldsmith Tools':'💎','Carpentry Tools':'🪚','Garden Tools':'🌿','Cordless Power Tools':'🔋','Electric Corded/AC Power Tools':'⚡','Electronic Tools':'🔌','Gasoline Garden Tools':'⛽','Refrigeration Tools':'❄️','Pneumatic Tools':'💨','Abrasive & Cutting Tools':'⚙️','Power Tools & Accessories':'🛠️','Hydraulic Tools':'🔩','DIY Tools':'🪛','Precision Tools':'📏','Brushes':'🖌️','Garage Tools':'🚗'};
 const catIcon = c => CAT_ICONS[c] || '🔧';
 
@@ -802,20 +804,52 @@ function searchParents(q){
 function renderCatalog(){
   const q = ((document.getElementById('catalogSearch')||{}).value||'').toLowerCase().trim();
   const searching = !!q;
-  let filtered = searching ? searchParents(q) : (activeCat==='All' ? allParents : allParents.filter(p=>p.category===activeCat));
+  catalogFiltered = searching ? searchParents(q) : (activeCat==='All' ? allParents : allParents.filter(p=>p.category===activeCat));
   const sidebar = document.getElementById('catalogSidebar');
   const layout = document.getElementById('catalogLayout');
   if(sidebar) sidebar.style.display = searching ? 'none' : '';
   if(layout) layout.style.gridTemplateColumns = searching ? '1fr' : '';
   const el = document.getElementById('catalogGrid');
   if(!el) return;
-  if(!filtered.length){
+
+  if(catalogScrollObserver){ catalogScrollObserver.disconnect(); catalogScrollObserver=null; }
+
+  if(!catalogFiltered.length){
     el.innerHTML='<div class="no-results"><div style="font-size:44px;margin-bottom:10px">🔍</div><p style="font-size:17px;font-weight:700">No products found</p><p style="margin-top:5px;font-size:13px">Try a different search or category</p></div>';
     document.getElementById('resultCount').textContent='0 products';
     return;
   }
-  document.getElementById('resultCount').textContent=`${filtered.length} product${filtered.length!==1?'s':''}`;
-  requestAnimationFrame(()=>{ el.innerHTML=filtered.map(cardHTML).join(''); restoreSteppers(el); });
+  document.getElementById('resultCount').textContent=`${catalogFiltered.length} product${catalogFiltered.length!==1?'s':''}`;
+  catalogRendered = 0;
+  el.innerHTML = '';
+  requestAnimationFrame(()=>renderCatalogBatch(el));
+}
+
+function renderCatalogBatch(el){
+  el = el || document.getElementById('catalogGrid');
+  if(!el) return;
+  const oldSentinel = document.getElementById('catalogScrollSentinel');
+  if(oldSentinel) oldSentinel.remove();
+
+  const next = catalogFiltered.slice(catalogRendered, catalogRendered + CATALOG_PAGE_SIZE);
+  if(!next.length) return;
+  el.insertAdjacentHTML('beforeend', next.map(cardHTML).join(''));
+  restoreSteppers(el);
+  catalogRendered += next.length;
+
+  if(catalogRendered < catalogFiltered.length){
+    const sentinel = document.createElement('div');
+    sentinel.id = 'catalogScrollSentinel';
+    sentinel.style.cssText = 'grid-column:1/-1;height:1px;';
+    el.appendChild(sentinel);
+    catalogScrollObserver = new IntersectionObserver((entries)=>{
+      if(entries[0].isIntersecting){
+        catalogScrollObserver.disconnect();
+        renderCatalogBatch(el);
+      }
+    }, { rootMargin: '800px' });
+    catalogScrollObserver.observe(sentinel);
+  }
 }
 
 let _st=null;
@@ -940,7 +974,7 @@ async function loadData(){
   const hc=document.getElementById('heroCount'); if(hc&&allParents.length)hc.textContent=allParents.length+'+';
   const cats=[...new Set(allParents.map(p=>p.category).filter(Boolean))].sort();
   buildCatNavs(cats);
-  buildSidebar(); renderTrending(); renderCatalog();
+  renderTrending();
   loaded=true; finishLoad();
 }
 

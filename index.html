@@ -629,7 +629,8 @@ footer{background:linear-gradient(135deg,#1e40af,#1E3A8A);border-top:1px solid #
 <script>
 // ─── CONFIG ────────────────────────────────────────────
 const WA = '919323120324';
-const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyw2R6B8_TPnLR-VsIdSyK5jHvaGtMky244EzK5zgoNfD7JYObJb2uFFCwhD6eB5G1pMQ/exec';
+const SUPABASE_URL = 'https://cduoyvygtowwyrcchtfc.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_u9G5XLQ46e9up4RhO3y6Rw_-ZgD89Tt';
 
 // ─── STATE ─────────────────────────────────────────────
 let allParents = [], activeCat = 'All', loaded = false, trendingCodes = [];
@@ -942,10 +943,14 @@ async function loadData(){
   const tg=document.getElementById('trendingGrid'); if(tg)tg.innerHTML=skels(6);
   const cg=document.getElementById('catalogGrid'); if(cg)cg.innerHTML=skels(12);
   try{
-    const res = await fetch(SHEET_URL+'?action=getCatalog');
-    const text = await res.text();
-    let raw; try{raw=JSON.parse(text);}catch(e){throw new Error('Bad JSON from Apps Script');}
-    if(raw.error) throw new Error(raw.error);
+    const res = await fetch(SUPABASE_URL+'/rest/v1/catalog_cache?id=eq.1&select=data',{
+      cache:'no-store',
+      headers:{apikey:SUPABASE_KEY}
+    });
+    if(!res.ok) throw new Error('Supabase error '+res.status);
+    const rows = await res.json();
+    const raw = rows[0] && rows[0].data;
+    if(!Array.isArray(raw)) throw new Error('catalog_cache row id=1 has no data');
     allParents = raw.filter(p=>p&&p.name&&p.parent_sku&&p.variants&&p.variants.length).map(p=>({
       parent_sku: clean(p.parent_sku),
       name: clean(p.name),
@@ -967,7 +972,11 @@ async function loadData(){
       }))
     }));
     console.log(`Loaded ${allParents.length} parents, ${allParents.reduce((s,p)=>s+p.variants.length,0)} variants`);
-    try{ const tr=await fetch(SHEET_URL+'?action=getTrending'); const tData=JSON.parse(await tr.text()); trendingCodes=(tData.result||tData||[]).map(t=>t.parentSku||t.parent_sku||t).filter(Boolean); }catch(e){ trendingCodes=[]; }
+    // trending (optional, never blocks the catalog)
+    try{
+      const tr=await fetch(SUPABASE_URL+'/rest/v1/trending?select=*',{headers:{apikey:SUPABASE_KEY}});
+      if(tr.ok){ const t=await tr.json(); trendingCodes=t.map(r=>r.parent_sku||r.parentSku||r.sku).filter(Boolean); }
+    }catch(e){ trendingCodes=[]; }
   }catch(e){
     console.error('Load failed:',e);
     const cg2=document.getElementById('catalogGrid');

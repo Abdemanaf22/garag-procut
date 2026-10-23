@@ -629,8 +629,8 @@ footer{background:linear-gradient(135deg,#1e40af,#1E3A8A);border-top:1px solid #
 <script>
 // ─── CONFIG ────────────────────────────────────────────
 const WA = '919323120324';
-const SUPABASE_URL = 'https://cduoyvygtowwyrcchtfc.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_u9G5XLQ46e9up4RhO3y6Rw_-ZgD89Tt';
+const SUPABASE_URL = 'https://flydynjhbmfykonstvyu.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_yS8jrtTw4QEHbSiG9ts9_g_45hth1kO';
 
 // ─── STATE ─────────────────────────────────────────────
 let allParents = [], activeCat = 'All', loaded = false, trendingCodes = [];
@@ -943,34 +943,23 @@ async function loadData(){
   const tg=document.getElementById('trendingGrid'); if(tg)tg.innerHTML=skels(6);
   const cg=document.getElementById('catalogGrid'); if(cg)cg.innerHTML=skels(12);
   try{
-    const res = await fetch(SUPABASE_URL+'/rest/v1/catalog_cache?id=eq.1&select=data',{
-      cache:'no-store',
-      headers:{apikey:SUPABASE_KEY}
-    });
-    if(!res.ok) throw new Error('Supabase error '+res.status);
-    const rows = await res.json();
-    const raw = rows[0] && rows[0].data;
-    if(!Array.isArray(raw)) throw new Error('catalog_cache row id=1 has no data');
-    allParents = raw.filter(p=>p&&p.name&&p.parent_sku&&p.variants&&p.variants.length).map(p=>({
-      parent_sku: clean(p.parent_sku),
-      name: clean(p.name),
-      brand: clean(p.brand),
-      category: clean(p.category),
-      subcategory: clean(p.subcategory),
-      description: clean(p.description),
-      image: clean(p.image),
-      price_min: p.price_min||null,
-      // price data present but never displayed — ready for future AI/RAG use
-      variants: (p.variants||[]).map(v=>({
-        sku: clean(v.sku),
-        variant_name: clean(v.variant_name),
-        size: clean(v.size),
-        model: clean(v.model),
-        image: clean(v.image),
-        attributes: Array.isArray(v.attributes)?v.attributes:[],
-        price: v.price || {wholesale:null,sub_dealer:null,retailer:null,end_user:null}
-      }))
-    }));
+    const rows=[];
+    for(let from=0;;from+=1000){
+      const r=await fetch(SUPABASE_URL+'/rest/v1/products?select=sku,parent_sku,name,variant_name,category,image,price&order=sort.asc',
+        {cache:'no-store',headers:{apikey:SUPABASE_KEY,Range:`${from}-${from+999}`,'Range-Unit':'items'}});
+      if(!r.ok) throw new Error('Supabase error '+r.status);
+      const part=await r.json(); rows.push(...part); if(part.length<1000) break;
+    }
+    if(!rows.length) throw new Error('No products found');
+    const map=new Map();
+    for(const r of rows){
+      if(!r.sku||!r.name||!r.parent_sku) continue;
+      let p=map.get(r.parent_sku);
+      if(!p){p={parent_sku:clean(r.parent_sku),name:clean(r.name),brand:'',category:clean(r.category),subcategory:'',description:'',image:clean(r.image),price_min:null,variants:[]};map.set(r.parent_sku,p);}
+      if(!p.image&&r.image) p.image=clean(r.image);
+      p.variants.push({sku:clean(r.sku),variant_name:clean(r.variant_name),size:'',model:'',image:clean(r.image),attributes:[],price:r.price==null?null:Number(r.price)}); // price kept, never displayed
+    }
+    allParents=[...map.values()];
     console.log(`Loaded ${allParents.length} parents, ${allParents.reduce((s,p)=>s+p.variants.length,0)} variants`);
     // trending (optional, never blocks the catalog)
     try{
